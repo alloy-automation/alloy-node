@@ -3,6 +3,7 @@ const axios = require("axios");
 class Alloy {
   headers = {};
   username = null;
+  userId = null;
 
   constructor(apiKey) {
     this.apiKey = apiKey;
@@ -22,14 +23,17 @@ class Alloy {
     try {
       const responseData = await axios.request(options);
       this.username = responseData?.data?.username;
+      this.userId = responseData?.data?.userId;
     } catch (err) {
       this.username = null;
+      this.userId = null;
       throw new Error("ERROR MESSAGE"); // Change msg here
     }
   }
 
   clear() {
     this.username = null;
+    this.userId = null;
   }
 
   async event(eventName, payload) {
@@ -39,7 +43,7 @@ class Alloy {
       headers: this.headers,
       data: {
         appEvent: eventName,
-        userId: this.username,
+        userId: this.userId,
         data: payload,
       },
     };
@@ -102,7 +106,7 @@ class Alloy {
 
   async updateUser(data) {
     const options = {
-      url: `https://embedded.runalloy.com/2022-09/users/${this.username}`,
+      url: `https://embedded.runalloy.com/2022-09/users/${this.userId}`,
       method: "POST",
       headers: this.headers,
       data: data,
@@ -118,7 +122,7 @@ class Alloy {
 
   async deleteUser() {
     const options = {
-      url: `https://embedded.runalloy.com/2022-09/users/${this.username}`,
+      url: `https://embedded.runalloy.com/2022-09/users/${this.userId}`,
       method: "DELETE",
       headers: this.headers,
       data: {},
@@ -134,7 +138,7 @@ class Alloy {
 
   async getUserToken() {
     const options = {
-      url: `https://embedded.runalloy.com/2022-09/users/${this.username}/token`,
+      url: `https://embedded.runalloy.com/2022-09/users/${this.userId}/token`,
       method: "GET",
       headers: this.headers,
       data: {},
@@ -198,7 +202,7 @@ class Alloy {
 
   async disableAllWorkflows() {
     const options = {
-      url: `https://embedded.runalloy.com/2022-09/users/${this.username}/deactivate-workflows`,
+      url: `https://embedded.runalloy.com/2022-09/users/${this.userId}/deactivate-workflows`,
       method: "PUT",
       headers: this.headers,
       data: {},
@@ -246,7 +250,7 @@ class Alloy {
 
   async deleteLogs() {
     const options = {
-      url: `https://embedded.runalloy.com/2022-09/users/${this.username}/logs`,
+      url: `https://embedded.runalloy.com/2022-09/users/${this.userId}/logs`,
       method: "DELETE",
       headers: this.headers,
       data: {},
@@ -315,7 +319,7 @@ class Alloy {
       headers: this.headers,
       data: {
         workflow,
-        userId: this.username,
+        userId: this.userId,
         data: payload,
       },
     };
