@@ -27,7 +27,7 @@ class Alloy {
     } catch (err) {
       this.username = null;
       this.userId = null;
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -52,7 +52,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -67,7 +67,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -82,7 +82,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -98,7 +98,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -114,7 +114,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -129,7 +129,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -144,7 +144,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -160,7 +160,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -176,7 +176,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -192,7 +192,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -207,7 +207,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -222,7 +222,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -237,7 +237,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -252,7 +252,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -267,7 +267,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -283,7 +283,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -298,7 +298,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -318,7 +318,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -334,7 +334,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -349,7 +349,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -365,7 +365,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 
@@ -381,7 +381,7 @@ class Alloy {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-      throw (err.response.data.message);;
+      throw (err.response.data.message);
     }
   }
 }
