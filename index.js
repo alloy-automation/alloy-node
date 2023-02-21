@@ -273,7 +273,7 @@ class Alloy {
 
   async getIntegrations() {
     const options = {
-      url: `https://embedded.runalloy.com/2023-01/Integrations`,
+      url: `https://embedded.runalloy.com/2023-01/integrations`,
       method: "GET",
       headers: this.headers,
       params: { userId: this.userId },
@@ -289,7 +289,7 @@ class Alloy {
 
   async getIntegration(name) {
     const options = {
-      url: `https://embedded.runalloy.com/2023-01/Integrations/${name}`,
+      url: `https://embedded.runalloy.com/2023-01/integrations/${name}`,
       method: "GET",
       headers: this.headers,
       params: { userId: this.userId },
