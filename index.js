@@ -303,6 +303,22 @@ class Alloy {
     }
   }
 
+  async getWorkflowDetails(workflowId) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-01/workflows/${workflowId}/users`,
+      method: "GET",
+      headers: this.headers,
+      params: { userId: this.userId },
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
   async getApps() {
     const options = {
       url: `https://embedded.runalloy.com/2023-01/apps`,
