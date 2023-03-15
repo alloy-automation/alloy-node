@@ -42,7 +42,7 @@ class Alloy {
       method: "POST",
       headers: this.headers,
       data: {
-        appEvent: eventName,
+        event: eventName,
         userId: this.userId,
         data: payload,
       },
