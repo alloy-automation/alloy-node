@@ -1,6 +1,6 @@
 {
   "name": "alloy-node",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Run Alloy workflows from a nodejs server",
   "main": "index.js",
   "scripts": {
