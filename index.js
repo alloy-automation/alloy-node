@@ -416,6 +416,391 @@ class Alloy {
       throw err.response.data.message;
     }
   }
+
+  async generateLink(integrationId) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-01/users/${this.userId}/integrations/${integrationId}/install-url`,
+      method: "GET",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async listCustomers(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/customers?userId=${data.userId}&credentialId=${data.credentialId}`,
+      method: "GET",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async getCustomer(customerId, credentialId) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/customers/${customerId}?userId=${this.userId}&credentialId=${credentialId}`,
+      method: "GET",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async createCustomer(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/customers?userId=${this.userId}&credentialId=${data.credentialId}`,
+      method: "POST",
+      headers: this.headers,
+      data: data,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async updateCustomer(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/customers/${data.customerId}?userId=${this.userId}&credentialId=${data.credentialId}`,
+      method: "PUT",
+      headers: this.headers,
+      data: data,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async deleteCustomer(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/customers/${data.customerId}?userId=${this.userId}&credentialId=${data.credentialId}`,
+      method: "DELETE",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async listOrders(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/orders?userId=${data.userId}&credentialId=${data.credentialId}`,
+      method: "GET",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async getOrder(orderId, credentialId) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/orders/${orderId}?userId=${this.userId}&credentialId=${credentialId}`,
+      method: "GET",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async createOrder(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/orders?userId=${this.userId}&credentialId=${data.credentialId}`,
+      method: "POST",
+      headers: this.headers,
+      data: data,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async updateOrder(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/orders/${data.orderId}?userId=${this.userId}&credentialId=${data.credentialId}`,
+      method: "PUT",
+      headers: this.headers,
+      data: data,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async deleteOrder(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/orders/${data.customerId}?userId=${this.userId}&credentialId=${data.credentialId}`,
+      method: "DELETE",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async listProducts(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/products?userId=${data.userId}&credentialId=${data.credentialId}`,
+      method: "GET",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async getProduct(productId, credentialId) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/products/${productId}?userId=${this.userId}&credentialId=${credentialId}`,
+      method: "GET",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async createProduct(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/products?userId=${this.userId}&credentialId=${data.credentialId}`,
+      method: "POST",
+      headers: this.headers,
+      data: data,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async updateProduct(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/products/${data.productId}?userId=${this.userId}&credentialId=${data.credentialId}`,
+      method: "PUT",
+      headers: this.headers,
+      data: data,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async deleteProduct(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/products/${data.productId}?userId=${this.userId}&credentialId=${data.credentialId}`,
+      method: "DELETE",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async listProductVariants(productId, data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/products/${productId}/variants?userId=${data.userId}&credentialId=${data.credentialId}`,
+      method: "GET",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async getProductVariant(productId, variantId, credentialId) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/products/${productId}/variants/${variantId}?userId=${this.userId}&credentialId=${credentialId}`,
+      method: "GET",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async createProductVariant(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/products/${data.productId}/variants?userId=${this.userId}&credentialId=${data.credentialId}`,
+      method: "POST",
+      headers: this.headers,
+      data: data,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async updateProductVariant(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/products/${data.productId}?userId=${this.userId}&credentialId=${data.credentialId}`,
+      method: "PUT",
+      headers: this.headers,
+      data: data,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async deleteProductVariant(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/commerce/products/${data.productId}/variants/${data.variantId}?userId=${this.userId}&credentialId=${data.credentialId}`,
+      method: "DELETE",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async listSubscriptions() {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/webhooks?userId=${data.userId}&credentialId=${data.credentialId}`,
+      method: "GET",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async getSubscription(subscriptionId, credentialId) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/webhooks/${subscriptionId}?userId=${this.userId}&credentialId=${credentialId}`,
+      method: "GET",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async createSubscription(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/webhooks?userId=${this.userId}&credentialId=${data.credentialId}`,
+      method: "POST",
+      headers: this.headers,
+      data: data,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
+  async deleteSubscription(data) {
+    const options = {
+      url: `https://embedded.runalloy.com/2023-03/one/webhooks/${data.subscriptionId}?userId=${this.userId}&credentialId=${data.credentialId}`,
+      method: "DELETE",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      throw err.response.data.message;
+    }
+  }
+
 }
 
 module.exports = Alloy;
