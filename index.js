@@ -73,7 +73,7 @@ class Alloy {
 
   async getVersions(workflowId) {
     const options = {
-      url: `https://embedded.runalloy.com/2023-01/workflows/${workflowId}/versions`,
+      url: `https://embedded.runalloy.com/2023-06/workflows/${workflowId}/versions`,
       method: "GET",
       headers: this.headers,
       params: { userId: this.userId },
