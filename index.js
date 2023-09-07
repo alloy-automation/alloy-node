@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { ObjectId } = required("mongodb");
+const { ObjectId } = require("mongodb");
 
 class Alloy {
   headers = {};
