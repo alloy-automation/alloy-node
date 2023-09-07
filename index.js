@@ -1,4 +1,5 @@
 const axios = require("axios");
+const { ObjectId } = required("mongodb");
 
 class Alloy {
   headers = {};
@@ -356,7 +357,7 @@ class Alloy {
       method: "POST",
       headers: this.headers,
       data: {
-        workflow,
+        ...(ObjectId.isValid(workflow) && new ObjectId(workflow).toString() === workflow ? { workflowId: workflow } : { workflowName: workflow }),
         userId: this.userId,
         data: payload,
       },
@@ -816,7 +817,6 @@ class Alloy {
       throw err.response.data.message;
     }
   }
-
 }
 
 module.exports = Alloy;
