@@ -228,24 +228,9 @@ class Alloy {
     }
   }
 
-  async getLogs(workflowId) {
+  async getLogs(workflowId, userId, page, limit, order, error) {
     const options = {
-      url: `https://embedded.runalloy.com/2023-01/workflows/${workflowId}/logs`,
-      method: "GET",
-      headers: this.headers,
-    };
-
-    try {
-      const responseData = await axios.request(options);
-      return responseData?.data;
-    } catch (err) {
-      throw err.response.data.message;
-    }
-  }
-
-  async getLogs(workflowId) {
-    const options = {
-      url: `https://embedded.runalloy.com/2023-01/workflows/${workflowId}/logs`,
+      url: `https://embedded.runalloy.com/2023-01/workflows/${workflowId}/logs?userId=${userId}&page=${page}&limit=${limit}&order=${order}&error=${error}`,
       method: "GET",
       headers: this.headers,
     };
@@ -357,7 +342,10 @@ class Alloy {
       method: "POST",
       headers: this.headers,
       data: {
-        ...(ObjectId.isValid(workflow) && new ObjectId(workflow).toString() === workflow ? { workflowId: workflow } : { workflowName: workflow }),
+        ...(ObjectId.isValid(workflow) &&
+        new ObjectId(workflow).toString() === workflow
+          ? { workflowId: workflow }
+          : { workflowName: workflow }),
         userId: this.userId,
         data: payload,
       },
