@@ -1,17 +1,17 @@
 # alloy-node
 
-This is a tiny wrapper that makes a POST request to run an Alloy workflow.
+This is a tiny wrapper that interacts with Alloy Automation's Embedded and UAPI api's.
 
 ## Usage
 
 ```
-import Alloy from 'alloy-node';
+import { Embedded, UAPI } from 'alloy-node';
 
 ...
 
-const alloy = new Alloy(<apiKey>);
+let uapi = new UAPI(<apiKey>);
+await uapi.connect(<connectionId>);
 
-alloy.identify(<username>);
-
-alloy.update(<payload>);
+let embedded = new Embedded(<apiKey>);
+await embedded.identify(<username>);
 ```
