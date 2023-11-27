@@ -43,6 +43,21 @@ const body = {
 const data = await apiClient.Accounting.createAccount(body);
 ```
 
+#### Update Account
+
+Update an account.
+
+```javascript
+const apiClient = new UAPI(apiKey);
+await apiClient.connect(quickbooksConnectionId);
+
+const body = {
+  accountName: "UpdatedGregg",
+};
+
+const data = await apiClient.Accounting.updateAccount("sampleAccountId", body);
+```
+
 #### List Accounts
 
 List all accounts.
@@ -104,6 +119,21 @@ const body = {
 const data = await apiClient.Accounting.createVendor(body);
 ```
 
+#### Update Vendor
+
+Update a vendor.
+
+```javascript
+const apiClient = new UAPI(apiKey);
+await apiClient.connect(quickbooksConnectionId);
+
+const body = {
+  vendorName: "UpdatedAlloy",
+};
+
+const data = await apiClient.Accounting.updateVendor("sampleVendorId", body);
+```
+
 #### List Vendors
 
 List all vendors.
@@ -162,6 +192,21 @@ const body = {
 };
 
 const data = await apiClient.Accounting.createCustomer(body);
+```
+
+#### Update Customer
+
+Update a customer.
+
+```javascript
+const apiClient = new UAPI(apiKey);
+await apiClient.connect(quickbooksConnectionId);
+
+const body = {
+  customerName: "UpdatedAlloy",
+};
+
+const data = await apiClient.Accounting.updateCustomer("sampleCustomerId", body);
 ```
 
 #### List Customers
@@ -310,6 +355,23 @@ const body = {
 const data = await apiClient.Accounting.createItem(body);
 ```
 
+
+#### Update Item
+
+Update an item.
+
+```javascript
+const apiClient = new UAPI(apiKey);
+await apiClient.connect(quickbooksConnectionId);
+
+const body = {
+  itemName: "UpdatedCommission",
+};
+
+const data = await apiClient.Accounting.updateItem("sampleItemId", body);
+```
+
+
 #### List Items
 
 List all items.
@@ -362,6 +424,21 @@ const body = {
 };
 
 const data = await apiClient.Accounting.createPurchaseOrder(body);
+```
+
+#### Update Purchase Order
+
+Update a purchase order.
+
+```javascript
+const apiClient = new UAPI(apiKey);
+await apiClient.connect(quickbooksConnectionId);
+
+const body = {
+  purchaseOrderNumber: "UpdatedPO-001",
+};
+
+const data = await apiClient.Accounting.updatePurchaseOrder("samplePurchaseOrderId", body);
 ```
 
 #### List Purchase Orders
@@ -420,6 +497,21 @@ const body = {
 };
 
 const data = await apiClient.Accounting.createBill(body);
+```
+
+#### Update Bill
+
+Update a bill.
+
+```javascript
+const apiClient = new UAPI(apiKey);
+await apiClient.connect(quickbooksConnectionId);
+
+const body = {
+  billNumber: "UpdatedPLDT-001",
+};
+
+const data = await apiClient.Accounting.updateBill("sampleBillId", body);
 ```
 
 #### List Bills
@@ -500,6 +592,21 @@ const body = {
 const data = await apiClient.Accounting.createInvoice(body);
 ```
 
+#### Update Invoice
+
+Update an invoice.
+
+```javascript
+const apiClient = new UAPI(apiKey);
+await apiClient.connect(quickbooksConnectionId);
+
+const body = {
+  invoiceNumber: "UpdatedALY-001",
+};
+
+const data = await apiClient.Accounting.updateInvoice("sampleInvoiceId", body);
+```
+
 #### List Invoices
 
 List all invoices.
@@ -556,6 +663,23 @@ const body = {
 
 const data = await apiClient.Accounting.createPayment(body);
 ```
+
+
+#### Update Payment
+
+Update a payment.
+
+```javascript
+const apiClient = new UAPI(apiKey);
+await apiClient.connect(quickbooksConnectionId);
+
+const body = {
+  paymentMethod: "CHECK",
+};
+
+const data = await apiClient.Accounting.updatePayment("samplePaymentId", body);
+```
+
 
 #### List Payments
 

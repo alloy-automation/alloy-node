@@ -72,7 +72,7 @@ Alloy Unified API currently offers three models:
 To set up Alloy's Embedded iPaaS, use the code snippet below:
 
 ```javascript
-import { Embedded, UAPI } from "alloy-node";
+import { Embedded } from "alloy-node";
 
 const apiClient = new Embedded("MY_API_KEY...);
 ```
