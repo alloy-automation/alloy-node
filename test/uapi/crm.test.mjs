@@ -1,5 +1,5 @@
-import { UAPI } from "../index.mjs";
-import { apiKey, salesforceConnectionId } from "../utils";
+import { UAPI } from "../../index.mjs";
+import { apiKey, salesforceConnectionId } from "../../utils";
 const { v4: uuidv4 } = require("uuid");
 
 describe("Salesforce Accounts", () => {

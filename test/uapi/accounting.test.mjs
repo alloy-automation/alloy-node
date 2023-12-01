@@ -1,5 +1,5 @@
-import { UAPI } from "../index.mjs";
-import { apiKey, quickbooksConnectionId } from "../utils";
+import { UAPI } from "../../index.mjs";
+import { apiKey, quickbooksConnectionId } from "../../utils";
 const { v4: uuidv4 } = require("uuid");
 
 describe("Quickbooks Company Info", () => {
@@ -8,9 +8,7 @@ describe("Quickbooks Company Info", () => {
   test("should list company info", async () => {
     const apiClient = new UAPI(apiKey);
     await apiClient.connect(quickbooksConnectionId);
-    let body = {
-      accountName: "Mojica",
-    };
+    
     let data = await apiClient.Accounting.listCompanyInfo();
     expect(data.companyInfo).toBeDefined();
     expect(data.companyInfo[0]).toBeDefined();
@@ -542,7 +540,7 @@ describe("Quickbooks Tax Rates", () => {
   });
 });
 
-describe("Quickbooks List Tracking Categories", () => {
+describe("Quickbooks Tracking Categories", () => {
   let trackingCategoryId;
 
   test("should list ticketing category", async () => {

@@ -5,6 +5,7 @@ import { CRM } from './crm.mjs';
 import { Accounting } from './erp.mjs';
 import { Commerce } from './commerce.mjs';
 import { Webhooks } from './webhooks.mjs';
+import { User } from './user.mjs';
 
 export class UAPI {
   headers = {};
@@ -18,6 +19,7 @@ export class UAPI {
     this.CRM = new CRM(this.apiKey);
     this.Commerce = new Commerce(this.apiKey);
     this.Accounting = new Accounting(this.apiKey);
+    this.User = new User(this.apiKey);
     this.Webhooks = new Webhooks(this.apiKey);
     this.headers = {
       Authorization: `Bearer ${apiKey}`,
