@@ -1,8 +1,9 @@
 {
   "name": "alloy-node",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Run Alloy workflows from a nodejs server",
   "main": "index.mjs",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
