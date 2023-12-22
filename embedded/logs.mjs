@@ -43,9 +43,9 @@ export class Logs {
     }
   }
 
-  async getWorkflowLogs(workflowId) {
+  async getWorkflowLogs(workflowId, page, limit, order, error) {
     const options = {
-      url: `${baseUrl}/workflows/${workflowId}/logs?userId=${this.userId}`,
+      url: `${baseUrl}/workflows/${workflowId}/logs?userId=${this.userId}&page=${page}&limit=${limit}&order=${order}&error=${error}`,
       method: "GET",
       headers: this.headers,
     };
