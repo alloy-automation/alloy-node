@@ -1,4 +1,3 @@
-import { Integration } from "../../embedded/integration.mjs";
 import { Embedded } from "../../index.mjs";
 import { apiKey } from "../../utils";
 const { v4: uuidv4 } = require("uuid");

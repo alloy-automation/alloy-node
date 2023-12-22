@@ -1,2 +1,4 @@
-export * from './embedded/index.mjs';
-export * from './uapi/index.mjs';
+import { Embedded } from "./embedded/index.mjs";
+import { UAPI } from "./uapi/index.mjs";
+
+module.exports = { Embedded, UAPI };
