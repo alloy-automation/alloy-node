@@ -14,6 +14,8 @@ const apiClient = new UAPI("YOUR_API_KEY");
 await apiClient.connect("connectionId");
 ```
 
+## Methods
+
 ### Accounts
 
 #### Create an Account
