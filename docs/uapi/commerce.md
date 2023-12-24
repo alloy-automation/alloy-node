@@ -13,7 +13,9 @@ const apiClient = new UAPI("YOUR_API_KEY");
 await apiClient.connect("connectionId");
 ```
 
-## Products
+## Methods
+
+### Products
 
 ### Create Product
 
@@ -76,7 +78,7 @@ const productId = "product123";
 const deletionResult = await apiClient.Commerce.deleteProduct(productId);
 ```
 
-## Product Variants
+### Product Variants
 
 ### Create Product Variant
 
@@ -140,7 +142,7 @@ const variantId = "variant456";
 const deletionResult = await apiClient.Commerce.deleteProductVariant(variantId);
 ```
 
-## Orders
+### Orders
 
 ### Create Order
 
@@ -205,7 +207,7 @@ const orderId = "order789";
 const deletionResult = await apiClient.Commerce.deleteOrder(orderId);
 ```
 
-## Customers
+### Customers
 
 ### Create Customer
 
@@ -266,7 +268,7 @@ const customerId = "customer789";
 const deletionResult = await apiClient.Commerce.deleteCustomer(customerId);
 ```
 
-## Fulfillments
+### Fulfillments
 
 ### Create Fulfillment
 
