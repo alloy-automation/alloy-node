@@ -476,8 +476,7 @@ export class Commerce {
     const options = {
       url: `${this.url}/one/commerce/orders/${orderId}/fulfillments/${fulfillmentId}?connectionId=${this.connectionId}`,
       method: 'POST',
-      headers: this.headers,
-      data: data,
+      headers: this.headers
     };
     if (filter) {
       options.url = `${options.url}&${new URLSearchParams(filter).toString()}`;
