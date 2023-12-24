@@ -13,6 +13,8 @@ const apiClient = new UAPI("YOUR_API_KEY");
 await apiClient.connect("connectionId");
 ```
 
+## Methods
+
 ### Company Info
 
 #### Get Company Info
