@@ -47,7 +47,7 @@ let data = await apiClient.User.createUser(bodyData);
 
 ### Obtain a connectionId
 
-Before you make your first API call, you will need to obtain a `connectionId`. A `connectionId` represents the unique identifier of an app you plan to make API calls to. You can obtain a connectionId by using the frontend SDK. Read more [here](https://docs-uapi.runalloy.com/docs/unified-api-quick-start).
+Before you make your first API call, you will need to obtain a `connectionId`. A `connectionId` represents the unique identifier of an app you plan to make API calls to. You can obtain a connectionId by using the frontend SDK. Read more [here](https://docs-uapi.runalloy.com/docs/quick-start).
 
 ### Making requests to Alloy Unified API's SDK
 
