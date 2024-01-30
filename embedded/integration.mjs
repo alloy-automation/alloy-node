@@ -1,5 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class Integration {
   headers = {};
@@ -26,9 +26,12 @@ export class Integration {
 
   async listIntegrations() {
     const options = {
-      url: `${baseUrl}/integrations?userId=${this.userId}`,
-      method: "GET",
+      url: `${baseUrl}/integrations`,
+      method: 'GET',
       headers: this.headers,
+      params: {
+        userId: this.userId,
+      },
     };
 
     try {
@@ -45,9 +48,12 @@ export class Integration {
 
   async getIntegration(integrationId) {
     const options = {
-      url: `${baseUrl}/integrations/${integrationId}?userId=${this.userId}`,
-      method: "GET",
+      url: `${baseUrl}/integrations/${integrationId}`,
+      method: 'GET',
       headers: this.headers,
+      params: {
+        userId: this.userId,
+      },
     };
 
     try {
@@ -62,5 +68,3 @@ export class Integration {
     }
   }
 }
-
-
