@@ -80,10 +80,25 @@ export class Credentials {
       }
     }
   }
+  /**
+   * @typedef CreateCredentialResponse
+   * @property {string} credentialId
+   * @property {boolean} success
+   */
 
+  /**
+   * @param {Object} data
+   * @param {Object} data.credential
+   * @param {string} data.credential.type - App Name
+   * @param {Object} data.credential.data - Credential Data
+   * @returns {Promise<CreateCredentialResponse>}
+   */
   async create(data) {
+    if (!data.userId) {
+      data.userId = this.userId;
+    }
     const options = {
-      url: `${baseUrl}/users/${this.userId}/credentials`,
+      url: `${baseUrl}/headless/credentials`,
       method: 'POST',
       headers: this.headers,
       data: data,
@@ -100,6 +115,17 @@ export class Credentials {
       }
     }
   }
+
+  /**
+   * @typedef GenerateOauthLinkResponse
+   * @property {Object} data
+   * @property {string} data.oauthUrl - Oauth Url
+   */
+
+  /**
+   * @param {string} app - App Name
+   * @returns {Promise<GenerateOauthLinkResponse>}
+   */
 
   async generateOauthLink(app) {
     const options = {
