@@ -62,6 +62,25 @@ export class Credentials {
     }
   }
 
+  async getMetadataByApp(app) {
+    const options = {
+      url: `${baseUrl}/metadata/credentials/${app}`,
+      method: 'GET',
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      if (err.response.status === 422) {
+        return err.response.data;
+      } else {
+        throw err.response.data.message;
+      }
+    }
+  }
+
   async delete(credentialId) {
     const options = {
       url: `${baseUrl}/users/${this.userId}/credentials/${credentialId}`,
