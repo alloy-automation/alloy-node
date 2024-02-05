@@ -5,3 +5,4 @@ export const shopifyConnectionId = '';
 export const salesforceConnectionId = '';
 export const zohoCRMConnectionId = '';
 export const quickbooksConnectionId = '';
+export const netsuiteConnectionId = "";

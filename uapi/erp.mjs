@@ -1194,4 +1194,126 @@ export class Accounting {
       }
     }
   }
+
+  //Sales Orders
+  async createSalesOrder(data) {
+    const options = {
+      url: `${baseUrl}/one/accounting/sales-orders?connectionId=${this.connectionId}`,
+      method: "POST",
+      headers: this.headers,
+      data: data,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      if (err.response.status === 422) {
+        return err.response.data;
+      } else {
+        throw err.response.data.message;
+      }
+    }
+  }
+
+  async listSalesOrder(filter) {
+    const options = {
+      url: `${baseUrl}/one/accounting/sales-orders?connectionId=${this.connectionId}`,
+      method: "GET",
+      headers: this.headers,
+    };
+    if (filter) {
+      options.url = `${options.url}&${new URLSearchParams(filter).toString()}`;
+    }
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      if (err.response.status === 422) {
+        return err.response.data;
+      } else {
+        throw err.response.data.message;
+      }
+    }
+  }
+
+  async getSalesOrdersCount() {
+    const options = {
+      url: `${baseUrl}/one/accounting/sales-orders/count?connectionId=${this.connectionId}`,
+      method: "GET",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      if (err.response.status === 422) {
+        return err.response.data;
+      } else {
+        throw err.response.data.message;
+      }
+    }
+  }
+
+  async getSalesOrder(salesOrderId, filter) {
+    const options = {
+      url: `${baseUrl}/one/accounting/sales-orders/${salesOrderId}?connectionId=${this.connectionId}`,
+      method: "GET",
+      headers: this.headers,
+    };
+    if (filter) {
+      options.url = `${options.url}&${new URLSearchParams(filter).toString()}`;
+    }
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      if (err.response.status === 422) {
+        return err.response.data;
+      } else {
+        throw err.response.data.message;
+      }
+    }
+  }
+
+  async updateSalesOrder(salesOrderId, data) {
+    const options = {
+      url: `${baseUrl}/one/accounting/sales-orders/${salesOrderId}?connectionId=${this.connectionId}`,
+      method: "PUT",
+      headers: this.headers,
+      data: data,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      if (err.response.status === 422) {
+        return err.response.data;
+      } else {
+        throw err.response.data.message;
+      }
+    }
+  }
+
+  async deleteSalesOrder(salesOrderId) {
+    const options = {
+      url: `${baseUrl}/one/accounting/sales-orders/${salesOrderId}?connectionId=${this.connectionId}`,
+      method: "DELETE",
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      if (err.response.status === 422) {
+        return err.response.data;
+      } else {
+        throw err.response.data.message;
+      }
+    }
+  }
 }
