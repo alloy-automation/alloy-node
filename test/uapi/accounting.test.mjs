@@ -1,5 +1,5 @@
 import { UAPI } from "../../index.mjs";
-import { apiKey, quickbooksConnectionId } from "../../utils";
+import { apiKey, quickbooksConnectionId, netsuiteConnectionId } from "../../utils";
 const { v4: uuidv4 } = require("uuid");
 
 describe("Quickbooks Company Info", () => {
@@ -8,7 +8,7 @@ describe("Quickbooks Company Info", () => {
   test("should list company info", async () => {
     const apiClient = new UAPI(apiKey);
     await apiClient.connect(quickbooksConnectionId);
-    
+
     let data = await apiClient.Accounting.listCompanyInfo();
     expect(data.companyInfo).toBeDefined();
     expect(data.companyInfo[0]).toBeDefined();
@@ -573,9 +573,7 @@ describe("Quickbooks Tracking Categories", () => {
     const apiClient = new UAPI(apiKey);
     await apiClient.connect(quickbooksConnectionId);
 
-    let data = await apiClient.Accounting.getTrackingCategory(
-      trackingCategoryId
-    );
+    let data = await apiClient.Accounting.getTrackingCategory(trackingCategoryId);
     expect(data).toBeDefined();
     expect(data).toHaveProperty("trackingCategory");
     expect(data.trackingCategory).toHaveProperty("remoteId");
@@ -857,9 +855,9 @@ describe("Quickbooks Purchase Orders", () => {
     let data = await apiClient.Accounting.createPurchaseOrder(body);
     expect(data).toHaveProperty("purchaseOrder");
     expect(data.purchaseOrder).toHaveProperty("remoteId");
-    expect(data.purchaseOrder).toHaveProperty("poStatus");
+    expect(data.purchaseOrder).toHaveProperty("purchaseOrderStatus");
     expect(data.purchaseOrder).toHaveProperty("issueDate");
-    expect(data.purchaseOrder).toHaveProperty("poNumber");
+    expect(data.purchaseOrder).toHaveProperty("purchaseOrderNumber");
     expect(data.purchaseOrder).toHaveProperty("deliveryDate");
     expect(data.purchaseOrder).toHaveProperty("deliveryAddress");
     expect(data.purchaseOrder).toHaveProperty("vendorId");
@@ -881,15 +879,11 @@ describe("Quickbooks Purchase Orders", () => {
     expect(data.purchaseOrder.lineItems[0]).toHaveProperty("quantity");
     expect(data.purchaseOrder.lineItems[0]).toHaveProperty("accountingItemId");
     expect(data.purchaseOrder.lineItems[0]).toHaveProperty("accountId");
-    expect(data.purchaseOrder.lineItems[0]).toHaveProperty(
-      "trackingCategoryId"
-    );
+    expect(data.purchaseOrder.lineItems[0]).toHaveProperty("trackingCategoryId");
     expect(data.purchaseOrder.lineItems[0]).toHaveProperty("taxAmount");
     expect(data.purchaseOrder.lineItems[0]).toHaveProperty("totalLineAmount");
     expect(data.purchaseOrder.lineItems[0]).toHaveProperty("currency");
-    expect(data.purchaseOrder.lineItems[0]).toHaveProperty(
-      "trackingCategoryIds"
-    );
+    expect(data.purchaseOrder.lineItems[0]).toHaveProperty("trackingCategoryIds");
 
     purchaseOrderId = data.purchaseOrder.id;
   });
@@ -902,9 +896,9 @@ describe("Quickbooks Purchase Orders", () => {
     expect(data).toBeDefined();
     expect(data).toHaveProperty("purchaseOrders");
     expect(data.purchaseOrders[0]).toHaveProperty("remoteId");
-    expect(data.purchaseOrders[0]).toHaveProperty("poStatus");
+    expect(data.purchaseOrders[0]).toHaveProperty("purchaseOrderStatus");
     expect(data.purchaseOrders[0]).toHaveProperty("issueDate");
-    expect(data.purchaseOrders[0]).toHaveProperty("poNumber");
+    expect(data.purchaseOrders[0]).toHaveProperty("purchaseOrderNumber");
     expect(data.purchaseOrders[0]).toHaveProperty("deliveryDate");
     expect(data.purchaseOrders[0]).toHaveProperty("deliveryAddress");
     expect(data.purchaseOrders[0]).toHaveProperty("vendorId");
@@ -924,21 +918,13 @@ describe("Quickbooks Purchase Orders", () => {
     expect(data.purchaseOrders[0].lineItems[0]).toHaveProperty("description");
     expect(data.purchaseOrders[0].lineItems[0]).toHaveProperty("unitPrice");
     expect(data.purchaseOrders[0].lineItems[0]).toHaveProperty("quantity");
-    expect(data.purchaseOrders[0].lineItems[0]).toHaveProperty(
-      "accountingItemId"
-    );
+    expect(data.purchaseOrders[0].lineItems[0]).toHaveProperty("accountingItemId");
     expect(data.purchaseOrders[0].lineItems[0]).toHaveProperty("accountId");
-    expect(data.purchaseOrders[0].lineItems[0]).toHaveProperty(
-      "trackingCategoryId"
-    );
+    expect(data.purchaseOrders[0].lineItems[0]).toHaveProperty("trackingCategoryId");
     expect(data.purchaseOrders[0].lineItems[0]).toHaveProperty("taxAmount");
-    expect(data.purchaseOrders[0].lineItems[0]).toHaveProperty(
-      "totalLineAmount"
-    );
+    expect(data.purchaseOrders[0].lineItems[0]).toHaveProperty("totalLineAmount");
     expect(data.purchaseOrders[0].lineItems[0]).toHaveProperty("currency");
-    expect(data.purchaseOrders[0].lineItems[0]).toHaveProperty(
-      "trackingCategoryIds"
-    );
+    expect(data.purchaseOrders[0].lineItems[0]).toHaveProperty("trackingCategoryIds");
   });
 
   test("should get purchase order count", async () => {
@@ -961,9 +947,9 @@ describe("Quickbooks Purchase Orders", () => {
     let data = await apiClient.Accounting.getPurchaseOrder(purchaseOrderId);
     expect(data).toHaveProperty("purchaseOrder");
     expect(data.purchaseOrder).toHaveProperty("remoteId");
-    expect(data.purchaseOrder).toHaveProperty("poStatus");
+    expect(data.purchaseOrder).toHaveProperty("purchaseOrderStatus");
     expect(data.purchaseOrder).toHaveProperty("issueDate");
-    expect(data.purchaseOrder).toHaveProperty("poNumber");
+    expect(data.purchaseOrder).toHaveProperty("purchaseOrderNumber");
     expect(data.purchaseOrder).toHaveProperty("deliveryDate");
     expect(data.purchaseOrder).toHaveProperty("deliveryAddress");
     expect(data.purchaseOrder).toHaveProperty("vendorId");
@@ -985,15 +971,11 @@ describe("Quickbooks Purchase Orders", () => {
     expect(data.purchaseOrder.lineItems[0]).toHaveProperty("quantity");
     expect(data.purchaseOrder.lineItems[0]).toHaveProperty("accountingItemId");
     expect(data.purchaseOrder.lineItems[0]).toHaveProperty("accountId");
-    expect(data.purchaseOrder.lineItems[0]).toHaveProperty(
-      "trackingCategoryId"
-    );
+    expect(data.purchaseOrder.lineItems[0]).toHaveProperty("trackingCategoryId");
     expect(data.purchaseOrder.lineItems[0]).toHaveProperty("taxAmount");
     expect(data.purchaseOrder.lineItems[0]).toHaveProperty("totalLineAmount");
     expect(data.purchaseOrder.lineItems[0]).toHaveProperty("currency");
-    expect(data.purchaseOrder.lineItems[0]).toHaveProperty(
-      "trackingCategoryIds"
-    );
+    expect(data.purchaseOrder.lineItems[0]).toHaveProperty("trackingCategoryIds");
   });
 
   test("should delete a purchase order", async () => {
@@ -1487,20 +1469,20 @@ describe("Quickbooks Payments", () => {
       totalAmount: 10,
     };
     let data = await apiClient.Accounting.createPayment(body);
-    expect(data).toHaveProperty('payment');
-    expect(data.payment).toHaveProperty('remoteId');
-    expect(data.payment).toHaveProperty('transactionDate');
-    expect(data.payment).toHaveProperty('customerId');
-    expect(data.payment).toHaveProperty('vendorId');
-    expect(data.payment).toHaveProperty('accountId');
-    expect(data.payment).toHaveProperty('currency');
-    expect(data.payment).toHaveProperty('exchangeRate');
-    expect(data.payment).toHaveProperty('companyId');
-    expect(data.payment).toHaveProperty('totalAmount');
-    expect(data.payment).toHaveProperty('trackingCategoryIds');
-    expect(data.payment).toHaveProperty('createdTimestamp');
-    expect(data.payment).toHaveProperty('updatedTimestamp');
-    expect(data.payment).toHaveProperty('id');
+    expect(data).toHaveProperty("payment");
+    expect(data.payment).toHaveProperty("remoteId");
+    expect(data.payment).toHaveProperty("transactionDate");
+    expect(data.payment).toHaveProperty("customerId");
+    expect(data.payment).toHaveProperty("vendorId");
+    expect(data.payment).toHaveProperty("accountId");
+    expect(data.payment).toHaveProperty("currency");
+    expect(data.payment).toHaveProperty("exchangeRate");
+    expect(data.payment).toHaveProperty("companyId");
+    expect(data.payment).toHaveProperty("totalAmount");
+    expect(data.payment).toHaveProperty("trackingCategoryIds");
+    expect(data.payment).toHaveProperty("createdTimestamp");
+    expect(data.payment).toHaveProperty("updatedTimestamp");
+    expect(data.payment).toHaveProperty("id");
 
     paymentId = data.payment.id;
   });
@@ -1511,20 +1493,20 @@ describe("Quickbooks Payments", () => {
 
     let data = await apiClient.Accounting.listPayments();
     expect(data).toBeDefined();
-    expect(data).toHaveProperty('payments');
-    expect(data.payments[0]).toHaveProperty('remoteId');
-    expect(data.payments[0]).toHaveProperty('transactionDate');
-    expect(data.payments[0]).toHaveProperty('customerId');
-    expect(data.payments[0]).toHaveProperty('vendorId');
-    expect(data.payments[0]).toHaveProperty('accountId');
-    expect(data.payments[0]).toHaveProperty('currency');
-    expect(data.payments[0]).toHaveProperty('exchangeRate');
-    expect(data.payments[0]).toHaveProperty('companyId');
-    expect(data.payments[0]).toHaveProperty('totalAmount');
-    expect(data.payments[0]).toHaveProperty('trackingCategoryIds');
-    expect(data.payments[0]).toHaveProperty('createdTimestamp');
-    expect(data.payments[0]).toHaveProperty('updatedTimestamp');
-    expect(data.payments[0]).toHaveProperty('id');
+    expect(data).toHaveProperty("payments");
+    expect(data.payments[0]).toHaveProperty("remoteId");
+    expect(data.payments[0]).toHaveProperty("transactionDate");
+    expect(data.payments[0]).toHaveProperty("customerId");
+    expect(data.payments[0]).toHaveProperty("vendorId");
+    expect(data.payments[0]).toHaveProperty("accountId");
+    expect(data.payments[0]).toHaveProperty("currency");
+    expect(data.payments[0]).toHaveProperty("exchangeRate");
+    expect(data.payments[0]).toHaveProperty("companyId");
+    expect(data.payments[0]).toHaveProperty("totalAmount");
+    expect(data.payments[0]).toHaveProperty("trackingCategoryIds");
+    expect(data.payments[0]).toHaveProperty("createdTimestamp");
+    expect(data.payments[0]).toHaveProperty("updatedTimestamp");
+    expect(data.payments[0]).toHaveProperty("id");
   });
 
   test("should get payment count", async () => {
@@ -1541,26 +1523,217 @@ describe("Quickbooks Payments", () => {
     await apiClient.connect(quickbooksConnectionId);
 
     let data = await apiClient.Accounting.getPayment(paymentId);
-    expect(data).toHaveProperty('payment');
-    expect(data.payment).toHaveProperty('remoteId');
-    expect(data.payment).toHaveProperty('transactionDate');
-    expect(data.payment).toHaveProperty('customerId');
-    expect(data.payment).toHaveProperty('vendorId');
-    expect(data.payment).toHaveProperty('accountId');
-    expect(data.payment).toHaveProperty('currency');
-    expect(data.payment).toHaveProperty('exchangeRate');
-    expect(data.payment).toHaveProperty('companyId');
-    expect(data.payment).toHaveProperty('totalAmount');
-    expect(data.payment).toHaveProperty('trackingCategoryIds');
-    expect(data.payment).toHaveProperty('createdTimestamp');
-    expect(data.payment).toHaveProperty('updatedTimestamp');
-    expect(data.payment).toHaveProperty('id');
+    expect(data).toHaveProperty("payment");
+    expect(data.payment).toHaveProperty("remoteId");
+    expect(data.payment).toHaveProperty("transactionDate");
+    expect(data.payment).toHaveProperty("customerId");
+    expect(data.payment).toHaveProperty("vendorId");
+    expect(data.payment).toHaveProperty("accountId");
+    expect(data.payment).toHaveProperty("currency");
+    expect(data.payment).toHaveProperty("exchangeRate");
+    expect(data.payment).toHaveProperty("companyId");
+    expect(data.payment).toHaveProperty("totalAmount");
+    expect(data.payment).toHaveProperty("trackingCategoryIds");
+    expect(data.payment).toHaveProperty("createdTimestamp");
+    expect(data.payment).toHaveProperty("updatedTimestamp");
+    expect(data.payment).toHaveProperty("id");
   });
 
   test("should delete a payment", async () => {
     const apiClient = new UAPI(apiKey);
     await apiClient.connect(quickbooksConnectionId);
     let data = await apiClient.Accounting.deletePayment(paymentId);
+    expect(data).toBeDefined();
+    expect(data).toHaveProperty("code");
+  });
+});
+
+describe("Netsuite Sales Orders", () => {
+  let itemIdForCreateSO, customerId, salesOrderId;
+  test("should list items so", async () => {
+    const apiClient = new UAPI(apiKey);
+    await apiClient.connect(netsuiteConnectionId);
+
+    let data = await apiClient.Accounting.listItems();
+    expect(data).toBeDefined();
+    expect(data).toHaveProperty("items");
+    expect(data.items[0]).toHaveProperty("remoteId");
+    expect(data.items[0]).toHaveProperty("itemName");
+    expect(data.items[0]).toHaveProperty("itemStatus");
+    expect(data.items[0]).toHaveProperty("itemType");
+    expect(data.items[0]).toHaveProperty("unitPrice");
+    expect(data.items[0]).toHaveProperty("purchasePrice");
+    expect(data.items[0]).toHaveProperty("qtyOnHand");
+    expect(data.items[0]).toHaveProperty("billAccountId");
+    expect(data.items[0]).toHaveProperty("invoiceAccountId");
+    expect(data.items[0]).toHaveProperty("assetAccountId");
+    expect(data.items[0]).toHaveProperty("companyId");
+    expect(data.items[0]).toHaveProperty("createdTimestamp");
+    expect(data.items[0]).toHaveProperty("updatedTimestamp");
+    expect(data.items[0]).toHaveProperty("id");
+
+    itemIdForCreateSO = data.items[0].id;
+  }, 20000);
+
+  test("should create a customer", async () => {
+    const apiClient = new UAPI(apiKey);
+    await apiClient.connect(netsuiteConnectionId);
+
+    let body = {
+      customerName: `Alloy-${uuidv4()}`,
+      addresses: [
+        {
+          addressType: "BILLING",
+          street1: "Beverly Hills",
+          zipCode: "90210",
+          country: "US",
+        },
+      ],
+      phoneNumbers: [
+        {
+          phoneNumberType: "MOBILE",
+          phoneNumber: "09173210215",
+        },
+      ],
+    };
+    let data = await apiClient.Accounting.createCustomer(body);
+    expect(data).toHaveProperty("customer");
+    expect(data.customer).toHaveProperty("remoteId");
+    expect(data.customer).toHaveProperty("customerName");
+    expect(data.customer).toHaveProperty("email");
+    expect(data.customer).toHaveProperty("taxNumber");
+    expect(data.customer).toHaveProperty("customerStatus");
+    expect(data.customer).toHaveProperty("currency");
+    expect(data.customer).toHaveProperty("companyId");
+    expect(data.customer).toHaveProperty("addresses");
+    expect(data.customer).toHaveProperty("phoneNumbers");
+    expect(data.customer).toHaveProperty("createdTimestamp");
+    expect(data.customer).toHaveProperty("updatedTimestamp");
+    expect(data.customer).toHaveProperty("id");
+
+    customerId = data.customer.id;
+  }, 20000);
+
+  test("should create a sales order", async () => {
+    const apiClient = new UAPI(apiKey);
+    await apiClient.connect(netsuiteConnectionId);
+    let body = {
+      customerId: customerId,
+      lineItems: [
+        {
+          description: "Francis Menguito - Developer",
+          accountingItemId: itemIdForCreateSO,
+          totalAmount: 200,
+        },
+      ],
+    };
+
+    let data = await apiClient.Accounting.createSalesOrder(body);
+    expect(data).toHaveProperty("salesOrder");
+    expect(data.salesOrder).toHaveProperty("remoteId");
+    expect(data.salesOrder).toHaveProperty("salesOrderStatus");
+    expect(data.salesOrder).toHaveProperty("issueDate");
+    expect(data.salesOrder).toHaveProperty("salesOrderNumber");
+    expect(data.salesOrder).toHaveProperty("deliveryDate");
+    expect(data.salesOrder).toHaveProperty("paidOnDate");
+    expect(data.salesOrder).toHaveProperty("deliveryAddress");
+    expect(data.salesOrder).toHaveProperty("customerId");
+    expect(data.salesOrder).toHaveProperty("accountId");
+    expect(data.salesOrder).toHaveProperty("memo");
+    expect(data.salesOrder).toHaveProperty("companyId");
+    expect(data.salesOrder).toHaveProperty("totalAmount");
+    expect(data.salesOrder).toHaveProperty("totalTaxAmount");
+    expect(data.salesOrder).toHaveProperty("currency");
+    expect(data.salesOrder).toHaveProperty("exchangeRate");
+    expect(data.salesOrder).toHaveProperty("lineItems");
+    expect(data.salesOrder).toHaveProperty("trackingCategoryIds");
+    expect(data.salesOrder).toHaveProperty("createdTimestamp");
+    expect(data.salesOrder).toHaveProperty("updatedTimestamp");
+
+    expect(data.salesOrder.lineItems[0]).toHaveProperty("id");
+    expect(data.salesOrder.lineItems[0]).toHaveProperty("remoteId");
+    expect(data.salesOrder.lineItems[0]).toHaveProperty("description");
+    expect(data.salesOrder.lineItems[0]).toHaveProperty("unitPrice");
+    expect(data.salesOrder.lineItems[0]).toHaveProperty("quantity");
+    expect(data.salesOrder.lineItems[0]).toHaveProperty("accountingItemId");
+    expect(data.salesOrder.lineItems[0]).toHaveProperty("accountId");
+    expect(data.salesOrder.lineItems[0]).toHaveProperty("trackingCategoryId");
+    expect(data.salesOrder.lineItems[0]).toHaveProperty("taxAmount");
+    expect(data.salesOrder.lineItems[0]).toHaveProperty("totalAmount");
+    expect(data.salesOrder.lineItems[0]).toHaveProperty("currency");
+    expect(data.salesOrder.lineItems[0]).toHaveProperty("trackingCategoryIds");
+
+    salesOrderId = data.salesOrder.id;
+  }, 20000);
+
+  test("should list sales orders", async () => {
+    const apiClient = new UAPI(apiKey);
+    await apiClient.connect(netsuiteConnectionId);
+
+    let data = await apiClient.Accounting.listSalesOrder();
+    expect(data).toBeDefined();
+    expect(data).toHaveProperty("salesOrders");
+    expect(data.salesOrders[0]).toHaveProperty("remoteId");
+    expect(data.salesOrders[0]).toHaveProperty("salesOrderStatus");
+    expect(data.salesOrders[0]).toHaveProperty("issueDate");
+    expect(data.salesOrders[0]).toHaveProperty("salesOrderNumber");
+    expect(data.salesOrders[0]).toHaveProperty("deliveryDate");
+    expect(data.salesOrders[0]).toHaveProperty("paidOnDate");
+    expect(data.salesOrders[0]).toHaveProperty("deliveryAddress");
+    expect(data.salesOrders[0]).toHaveProperty("customerId");
+    expect(data.salesOrders[0]).toHaveProperty("accountId");
+    expect(data.salesOrders[0]).toHaveProperty("memo");
+    expect(data.salesOrders[0]).toHaveProperty("companyId");
+    expect(data.salesOrders[0]).toHaveProperty("totalAmount");
+    expect(data.salesOrders[0]).toHaveProperty("totalTaxAmount");
+    expect(data.salesOrders[0]).toHaveProperty("currency");
+    expect(data.salesOrders[0]).toHaveProperty("exchangeRate");
+    expect(data.salesOrders[0]).toHaveProperty("lineItems");
+    expect(data.salesOrders[0]).toHaveProperty("trackingCategoryIds");
+    expect(data.salesOrders[0]).toHaveProperty("createdTimestamp");
+    expect(data.salesOrders[0]).toHaveProperty("updatedTimestamp");
+  }, 20000);
+
+  test("should get sales order count", async () => {
+    const apiClient = new UAPI(apiKey);
+    await apiClient.connect(netsuiteConnectionId);
+
+    let data = await apiClient.Accounting.getSalesOrdersCount();
+    expect(data).toBeDefined();
+    expect(data).toHaveProperty("count");
+  }, 20000);
+
+  test("should retrieve sales order", async () => {
+    const apiClient = new UAPI(apiKey);
+    await apiClient.connect(netsuiteConnectionId);
+
+    let data = await apiClient.Accounting.getSalesOrder(salesOrderId);
+    expect(data).toHaveProperty("salesOrder");
+    expect(data.salesOrder).toHaveProperty("remoteId");
+    expect(data.salesOrder).toHaveProperty("salesOrderStatus");
+    expect(data.salesOrder).toHaveProperty("issueDate");
+    expect(data.salesOrder).toHaveProperty("salesOrderNumber");
+    expect(data.salesOrder).toHaveProperty("deliveryDate");
+    expect(data.salesOrder).toHaveProperty("paidOnDate");
+    expect(data.salesOrder).toHaveProperty("deliveryAddress");
+    expect(data.salesOrder).toHaveProperty("customerId");
+    expect(data.salesOrder).toHaveProperty("accountId");
+    expect(data.salesOrder).toHaveProperty("memo");
+    expect(data.salesOrder).toHaveProperty("companyId");
+    expect(data.salesOrder).toHaveProperty("totalAmount");
+    expect(data.salesOrder).toHaveProperty("totalTaxAmount");
+    expect(data.salesOrder).toHaveProperty("currency");
+    expect(data.salesOrder).toHaveProperty("exchangeRate");
+    expect(data.salesOrder).toHaveProperty("lineItems");
+    expect(data.salesOrder).toHaveProperty("trackingCategoryIds");
+    expect(data.salesOrder).toHaveProperty("createdTimestamp");
+    expect(data.salesOrder).toHaveProperty("updatedTimestamp");
+  }, 20000);
+
+  test("should delete a sales order", async () => {
+    const apiClient = new UAPI(apiKey);
+    await apiClient.connect(netsuiteConnectionId);
+    let data = await apiClient.Accounting.deleteSalesOrder(salesOrderId);
     expect(data).toBeDefined();
     expect(data).toHaveProperty("code");
   });
