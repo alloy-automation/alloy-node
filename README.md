@@ -49,6 +49,12 @@ let data = await apiClient.User.createUser(bodyData);
 
 Before you make your first API call, you will need to obtain a `connectionId`. A `connectionId` represents the unique identifier of an app you plan to make API calls to. You can obtain a connectionId by using the frontend SDK. Read more [here](https://docs-uapi.runalloy.com/docs/unified-api-quick-start).
 
+Once you have the `connectionId`, call the `connect()` method as seen below.
+
+```
+await apiClient.connect(YOUR_CONNECTION_ID);
+```
+
 ### Making requests to Alloy Unified API's SDK
 
 Once you have a `connectionId`, you can start making calls to Alloy Unified API. See the example below for making a request to the Commerce Unified API:
