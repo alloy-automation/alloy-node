@@ -51,7 +51,7 @@ Before you make your first API call, you will need to obtain a `connectionId`. A
 
 Once you have the `connectionId`, call the `connect()` method as seen below.
 
-```
+```javascript
 await apiClient.connect(YOUR_CONNECTION_ID);
 ```
 
