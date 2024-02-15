@@ -29,9 +29,9 @@ The package needs to be configured with your account's API key, which is availab
 To set up Alloy's Unified API, use the code snippet below:
 
 ```javascript
-import { Embedded, UAPI } from "alloy-node";
+import { Embedded, UAPI } from 'alloy-node';
 
-const apiClient = new UAPI("MY_API_KEY...");
+const apiClient = new UAPI('MY_API_KEY...');
 ```
 
 ### Creating a User
@@ -99,7 +99,7 @@ Once you've created a user, you'll need to `identify` that user each time you ma
 Pass a `userId` to the `identify()` method as seen below:
 
 ```javascript
-await apiClient.identify("YOUR_USER_ID");
+await apiClient.identify('YOUR_USER_ID');
 ```
 
 ### Obtain a workflowId
@@ -111,8 +111,32 @@ Before you can make API calls to Alloy Embedded, you will need to install a work
 Once you have a workflowId, you can make requests
 
 ```javascript
-await apiClient.identify("YOUR_USER_ID");
+await apiClient.identify('YOUR_USER_ID');
 let data = await apiClient.Workflows.list();
 ```
 
 This call will return all workflows relevant to the specified user.
+
+### Start a Headless Installation
+
+You can start a headless installation by using the following function:
+
+```javascript
+let data = await apiClient.HeadlessInstallation.start({
+  integrationId: 'YOUR_INTEGRATION_ID',
+  userId: 'YOUR_USER_ID',
+});
+```
+
+### Complete a Headless Installation
+
+You can complete a headless installation by using the following function:
+
+```javascript
+let data = await apiClient.HeadlessInstallation.complete({
+  installationId: 'YOUR_INSTALLION_ID',
+  data: {
+    // Your installation data
+  },
+});
+```
