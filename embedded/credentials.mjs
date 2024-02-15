@@ -1,5 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class Credentials {
   headers = {};
@@ -27,7 +27,7 @@ export class Credentials {
   async listUserCredentials() {
     const options = {
       url: `${baseUrl}/users/${this.userId}/credentials`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -45,8 +45,27 @@ export class Credentials {
 
   async getMetadata() {
     const options = {
-      url: `${baseUrl}/credentials?userId=${this.userId}`,
-      method: "GET",
+      url: `${baseUrl}/metadata/credentials`,
+      method: 'GET',
+      headers: this.headers,
+    };
+
+    try {
+      const responseData = await axios.request(options);
+      return responseData?.data;
+    } catch (err) {
+      if (err.response.status === 422) {
+        return err.response.data;
+      } else {
+        throw err.response.data.message;
+      }
+    }
+  }
+
+  async getMetadataByApp(app) {
+    const options = {
+      url: `${baseUrl}/metadata/credentials/${app}`,
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -65,7 +84,7 @@ export class Credentials {
   async delete(credentialId) {
     const options = {
       url: `${baseUrl}/users/${this.userId}/credentials/${credentialId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -80,11 +99,26 @@ export class Credentials {
       }
     }
   }
+  /**
+   * @typedef CreateCredentialResponse
+   * @property {string} credentialId
+   * @property {boolean} success
+   */
 
+  /**
+   * @param {Object} data
+   * @param {Object} data.credential
+   * @param {string} data.credential.type - App Name
+   * @param {Object} data.credential.data - Credential Data
+   * @returns {Promise<CreateCredentialResponse>}
+   */
   async create(data) {
+    if (!data.userId) {
+      data.userId = this.userId;
+    }
     const options = {
-      url: `${baseUrl}/users/${this.userId}/credentials`,
-      method: "POST",
+      url: `${baseUrl}/headless/credentials`,
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -101,11 +135,26 @@ export class Credentials {
     }
   }
 
-  async generateOauthLink(app, integrationId) {
+  /**
+   * @typedef GenerateOauthLinkResponse
+   * @property {Object} data
+   * @property {string} data.oauthUrl - Oauth Url
+   */
+
+  /**
+   * @param {string} app - App Name
+   * @returns {Promise<GenerateOauthLinkResponse>}
+   */
+
+  async generateOauthLink(app) {
     const options = {
-      url: `${baseUrl}/users/${this.userId}/credentials/${app}?integrationId=${integrationId}`,
-      method: "GET",
+      url: `${baseUrl}/headless/oauthUrl`,
+      method: 'GET',
       headers: this.headers,
+      params: {
+        app: app,
+        userId: this.userId,
+      },
     };
 
     try {

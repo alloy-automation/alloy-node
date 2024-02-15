@@ -1,18 +1,19 @@
-import { default as axios } from "axios";
-import { ObjectId } from "mongodb";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { ObjectId } from 'mongodb';
+import { baseUrl } from '../utils.mjs';
 
-import { User } from "./user.mjs";
-import { App } from "./app.mjs";
-import { Integration } from "./integration.mjs";
-import { Tokens } from "./token.mjs";
-import { Workflows } from "./workflow.mjs";
-import { Events } from "./event.mjs";
-import { Compliance } from "./compliance.mjs";
-import { Logs } from "./logs.mjs";
-import { Credentials } from "./credentials.mjs";
-import { Link } from "./link.mjs";
-import { Analytics } from "./analytics.mjs";
+import { User } from './user.mjs';
+import { App } from './app.mjs';
+import { Integration } from './integration.mjs';
+import { Tokens } from './token.mjs';
+import { Workflows } from './workflow.mjs';
+import { Events } from './event.mjs';
+import { Compliance } from './compliance.mjs';
+import { Logs } from './logs.mjs';
+import { Credentials } from './credentials.mjs';
+import { Link } from './link.mjs';
+import { Analytics } from './analytics.mjs';
+import { HeadlessInstallation } from './headless.mjs';
 
 export class Embedded {
   headers = {};
@@ -20,6 +21,10 @@ export class Embedded {
   userId = null;
   connectionId = null;
   url = baseUrl;
+
+  /**
+   * @param {string} apiKey - The API key to use for the requests
+   */
 
   constructor(apiKey) {
     this.apiKey = apiKey;
@@ -34,6 +39,7 @@ export class Embedded {
     this.Credentials = new Credentials(this.apiKey);
     this.Link = new Link(this.apiKey);
     this.Analytics = new Analytics(this.apiKey);
+    this.HeadlessInstallation = new HeadlessInstallation(this.apiKey);
 
     this.headers = {
       Authorization: `Bearer ${apiKey}`,
@@ -43,7 +49,7 @@ export class Embedded {
   async identify(username) {
     const options = {
       url: `${baseUrl}/users/${username}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
       data: {},
     };
@@ -75,7 +81,8 @@ export class Embedded {
       this.Link.setUsername(responseData?.data?.username);
       this.Analytics.setUserId(responseData?.data?.userId);
       this.Analytics.setUsername(responseData?.data?.username);
-  
+      this.HeadlessInstallation.setUserId(responseData?.data?.userId);
+      this.HeadlessInstallation.setUsername(responseData?.data?.username);
     } catch (err) {
       this.username = null;
       this.userId = null;
