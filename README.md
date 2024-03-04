@@ -74,7 +74,7 @@ To set up Alloy's Embedded iPaaS, use the code snippet below:
 ```javascript
 import { Embedded } from "alloy-node";
 
-const apiClient = new Embedded("MY_API_KEY...);
+const apiClient = new Embedded("MY_API_KEY...");
 ```
 
 ### Creating a User
@@ -85,7 +85,7 @@ Similar to Unified API, in order to make API calls to Alloy Embedded, you must f
 let bodyData = {
   username: `sara456`,
 };
-let data = await apiClient.User.createUser(body);
+let data = await apiClient.User.createUser(bodyData);
 ```
 
 Once you've created a user, you'll need to `identify` that user each time you make a call that requires a `userId`. Fortunately, the `identify()` method exists for this purpose.
