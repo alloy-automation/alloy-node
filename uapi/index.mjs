@@ -12,17 +12,18 @@ export class UAPI {
   username = null;
   userId = null;
   connectionId = null;
-  url = baseUrl;
+  url = null;
 
   /**
    * Create a new UAPI instance
    * @param {string} apiKey - The API key for authentication
-   * @param {string} [environment='production'] - The environment to use (production, staging, development, local)
+   * @param {string} [environment='us'] - The environment to use (us, eu)
    */
-  constructor(apiKey, environment = 'production') {
+  constructor(apiKey, environment = 'us') {
     this.apiKey = apiKey;
     this.environment = environment;
     this.baseUrl = getBaseUrl(environment);
+    this.url = this.baseUrl; // Set the url property to baseUrl
     
     this.CRM = new CRM(this.apiKey, this.baseUrl);
     this.Commerce = new Commerce(this.apiKey, this.baseUrl);
@@ -37,7 +38,7 @@ export class UAPI {
 
   async identify(username) {
     const options = {
-      url: `${url}/users/${username}`,
+      url: `${this.baseUrl}/users/${username}`,
       method: 'GET',
       headers: this.headers,
       data: {},
@@ -73,6 +74,7 @@ export class UAPI {
   clear() {
     this.username = null;
     this.userId = null;
+    this.baseUrl = null;
     this.connectionId = null;
     this.CRM.connect(null);
     this.Commerce.connect(null);

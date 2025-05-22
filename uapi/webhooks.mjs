@@ -5,7 +5,8 @@ export class Webhooks {
   username = null;
   userId = null;
   connectionId = null;
-  url = baseUrl;
+  url = null;
+  baseUrl = null;
 
   /**
    * Create a new Webhooks instance
@@ -14,7 +15,8 @@ export class Webhooks {
    */
   constructor(apiKey, baseUrl) {
     this.apiKey = apiKey;
-    this.url = baseUrl || 'https://embedded.runalloy.com/2024-03';
+    this.baseUrl = baseUrl || 'https://embedded.runalloy.com/2024-03';
+    this.url = this.baseUrl;
     
     this.headers = {
       Authorization: `Bearer ${apiKey}`,
