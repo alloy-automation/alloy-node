@@ -34,6 +34,39 @@ import { Embedded, UAPI } from "alloy-node";
 const apiClient = new UAPI("MY_API_KEY...");
 ```
 
+### Specifying the Environment
+
+By default, the Unified API will connect to the production environment. You can specify a different environment by passing the environment name as the second parameter. The following environments are supported:
+
+- `production` (default) - Production environment
+- `staging` - Staging environment for testing
+- `development` - Development environment
+- `local` - Local development environment
+
+```javascript
+// Production (default)
+const prodClient = new UAPI("MY_API_KEY...");
+
+// Staging environment
+const stagingClient = new UAPI("MY_API_KEY...", "staging");
+
+// Development environment
+const devClient = new UAPI("MY_API_KEY...", "development");
+
+// Local development
+const localClient = new UAPI("MY_API_KEY...", "local");
+```
+
+### Specifying the Region (Deprecated)
+
+> **Note**: The region parameter is deprecated. Please use the environment parameter instead.
+
+If you need to connect to the EU region, you can still do so by passing the `eu` environment:
+
+```javascript
+const apiClient = new UAPI("MY_API_KEY...", "eu");
+```
+
 ### Creating a User
 
 To make API calls to Unified API, you must first [create a user](https://docs-uapi.runalloy.com/reference/create-user). To create a user, call the `User.createUser()` method as seen below. You must pass a _unique_ username.

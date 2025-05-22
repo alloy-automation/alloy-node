@@ -1,5 +1,5 @@
 import { default as axios } from 'axios';
-import { baseUrl } from '../utils.mjs';
+import { getBaseUrl } from '../utils.mjs';
 
 import { CRM } from './crm.mjs';
 import { Accounting } from './erp.mjs';
@@ -14,13 +14,22 @@ export class UAPI {
   connectionId = null;
   url = baseUrl;
 
-  constructor(apiKey) {
+  /**
+   * Create a new UAPI instance
+   * @param {string} apiKey - The API key for authentication
+   * @param {string} [environment='production'] - The environment to use (production, staging, development, local)
+   */
+  constructor(apiKey, environment = 'production') {
     this.apiKey = apiKey;
-    this.CRM = new CRM(this.apiKey);
-    this.Commerce = new Commerce(this.apiKey);
-    this.Accounting = new Accounting(this.apiKey);
-    this.User = new User(this.apiKey);
-    this.Webhooks = new Webhooks(this.apiKey);
+    this.environment = environment;
+    this.baseUrl = getBaseUrl(environment);
+    
+    this.CRM = new CRM(this.apiKey, this.baseUrl);
+    this.Commerce = new Commerce(this.apiKey, this.baseUrl);
+    this.Accounting = new Accounting(this.apiKey, this.baseUrl);
+    this.User = new User(this.apiKey, this.baseUrl);
+    this.Webhooks = new Webhooks(this.apiKey, this.baseUrl);
+    
     this.headers = {
       Authorization: `Bearer ${apiKey}`,
     };

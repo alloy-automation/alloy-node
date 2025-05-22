@@ -1,14 +1,19 @@
 import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
 
 export class Accounting {
   headers = {};
   connectionId = null;
   url = baseUrl;
 
-  constructor(apiKey) {
+  /**
+   * Create a new Accounting instance
+   * @param {string} apiKey - The API key for authentication
+   * @param {string} [baseUrl] - The base URL for API requests
+   */
+  constructor(apiKey, baseUrl) {
     this.apiKey = apiKey;
-
+    this.url = baseUrl || 'https://embedded.runalloy.com/2024-03';
+    
     this.headers = {
       Authorization: `Bearer ${apiKey}`,
     };
