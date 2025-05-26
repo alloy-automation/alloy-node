@@ -24,9 +24,13 @@ export class Compliance {
     this.username = username;
   }
 
+  async setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async deleteUserLogs() {
     const options = {
-      url: `${baseUrl}/users/${this.userId}/logs`,
+      url: `${this.url}/users/${this.userId}/logs`,
       method: "DELETE",
       headers: this.headers,
     };

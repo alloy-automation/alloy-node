@@ -1,11 +1,11 @@
-import { default as axios } from 'axios';
-import { baseUrl } from '../utils.mjs';
+import { default as axios } from "axios";
+import { baseUrl, euBaseUrl } from "../utils.mjs";
 
-import { CRM } from './crm.mjs';
-import { Accounting } from './erp.mjs';
-import { Commerce } from './commerce.mjs';
-import { Webhooks } from './webhooks.mjs';
-import { User } from './user.mjs';
+import { CRM } from "./crm.mjs";
+import { Accounting } from "./erp.mjs";
+import { Commerce } from "./commerce.mjs";
+import { Webhooks } from "./webhooks.mjs";
+import { User } from "./user.mjs";
 
 export class UAPI {
   headers = {};
@@ -29,7 +29,7 @@ export class UAPI {
   async identify(username) {
     const options = {
       url: `${url}/users/${username}`,
-      method: 'GET',
+      method: "GET",
       headers: this.headers,
       data: {},
     };
@@ -51,6 +51,17 @@ export class UAPI {
       this.Webhooks.setUser(null);
       throw err.response.data.message;
     }
+  }
+
+  async setRegion(region) {
+    const regionUrl = region.toLowerCase() === "eu" ? euBaseUrl : baseUrl;
+    try {
+      this.CRM.setUrl(regionUrl);
+      this.Commerce.setUrl(regionUrl);
+      this.Accounting.setUrl(regionUrl);
+      this.Webhooks.setUrl(regionUrl);
+      this.url = regionUrl;
+    } catch (error) {}
   }
 
   async connect(connectionId) {

@@ -1,5 +1,5 @@
-import { default as axios } from 'axios';
-import { baseUrl } from '../utils.mjs';
+import { default as axios } from "axios";
+import { baseUrl } from "../utils.mjs";
 
 export class Commerce {
   headers = {};
@@ -20,6 +20,10 @@ export class Commerce {
     this.userId = userId;
   }
 
+  async setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   connect(connectionId) {
     this.connectionId = connectionId;
   }
@@ -27,7 +31,7 @@ export class Commerce {
   async listCustomers(filter) {
     const options = {
       url: `${this.url}/one/commerce/customers?connectionId=${this.connectionId}`,
-      method: 'GET',
+      method: "GET",
       headers: this.headers,
     };
     if (filter) {
@@ -48,7 +52,7 @@ export class Commerce {
   async getCustomer(customerId, filter) {
     const options = {
       url: `${this.url}/one/commerce/customers/${customerId}?connectionId=${this.connectionId}`,
-      method: 'GET',
+      method: "GET",
       headers: this.headers,
     };
     if (filter) {
@@ -70,7 +74,7 @@ export class Commerce {
   async createCustomer(data) {
     const options = {
       url: `${this.url}/one/commerce/customers?connectionId=${this.connectionId}`,
-      method: 'POST',
+      method: "POST",
       headers: this.headers,
       data: data,
     };
@@ -90,7 +94,7 @@ export class Commerce {
   async updateCustomer(customerId, data) {
     const options = {
       url: `${this.url}/one/commerce/customers/${customerId}?connectionId=${this.connectionId}`,
-      method: 'PUT',
+      method: "PUT",
       headers: this.headers,
       data: data,
     };
@@ -110,7 +114,7 @@ export class Commerce {
   async deleteCustomer(customerId) {
     const options = {
       url: `${this.url}/one/commerce/customers/${customerId}?connectionId=${this.connectionId}`,
-      method: 'DELETE',
+      method: "DELETE",
       headers: this.headers,
     };
 
@@ -129,7 +133,7 @@ export class Commerce {
   async listOrders(filter) {
     const options = {
       url: `${this.url}/one/commerce/orders?connectionId=${this.connectionId}`,
-      method: 'GET',
+      method: "GET",
       headers: this.headers,
     };
     if (filter) {
@@ -150,7 +154,7 @@ export class Commerce {
   async getOrder(orderId, filter) {
     const options = {
       url: `${this.url}/one/commerce/orders/${orderId}?connectionId=${this.connectionId}`,
-      method: 'GET',
+      method: "GET",
       headers: this.headers,
     };
     if (filter) {
@@ -172,7 +176,7 @@ export class Commerce {
   async createOrder(data) {
     const options = {
       url: `${this.url}/one/commerce/orders?connectionId=${this.connectionId}`,
-      method: 'POST',
+      method: "POST",
       headers: this.headers,
       data: data,
     };
@@ -192,7 +196,7 @@ export class Commerce {
   async updateOrder(orderId, data) {
     const options = {
       url: `${this.url}/one/commerce/orders/${orderId}?connectionId=${this.connectionId}`,
-      method: 'PUT',
+      method: "PUT",
       headers: this.headers,
       data: data,
     };
@@ -212,7 +216,7 @@ export class Commerce {
   async deleteOrder(orderId) {
     const options = {
       url: `${this.url}/one/commerce/orders/${orderId}?connectionId=${this.connectionId}`,
-      method: 'DELETE',
+      method: "DELETE",
       headers: this.headers,
     };
 
@@ -231,7 +235,7 @@ export class Commerce {
   async listProducts(filter) {
     const options = {
       url: `${this.url}/one/commerce/products?connectionId=${this.connectionId}`,
-      method: 'GET',
+      method: "GET",
       headers: this.headers,
     };
     if (filter) {
@@ -252,7 +256,7 @@ export class Commerce {
   async getProduct(productId, filter) {
     const options = {
       url: `${this.url}/one/commerce/products/${productId}?connectionId=${this.connectionId}`,
-      method: 'GET',
+      method: "GET",
       headers: this.headers,
     };
     if (filter) {
@@ -274,7 +278,7 @@ export class Commerce {
   async createProduct(data) {
     const options = {
       url: `${this.url}/one/commerce/products?connectionId=${this.connectionId}`,
-      method: 'POST',
+      method: "POST",
       headers: this.headers,
       data: data,
     };
@@ -294,7 +298,7 @@ export class Commerce {
   async updateProduct(productId, data) {
     const options = {
       url: `${this.url}/one/commerce/products/${productId}?connectionId=${this.connectionId}`,
-      method: 'PUT',
+      method: "PUT",
       headers: this.headers,
       data: data,
     };
@@ -314,7 +318,7 @@ export class Commerce {
   async deleteProduct(productId) {
     const options = {
       url: `${this.url}/one/commerce/products/${productId}?connectionId=${this.connectionId}`,
-      method: 'DELETE',
+      method: "DELETE",
       headers: this.headers,
     };
 
@@ -333,7 +337,7 @@ export class Commerce {
   async listProductVariants(productId, filter) {
     const options = {
       url: `${this.url}/one/commerce/products/${productId}/variants?connectionId=${this.connectionId}`,
-      method: 'GET',
+      method: "GET",
       headers: this.headers,
     };
     if (filter) {
@@ -354,7 +358,7 @@ export class Commerce {
   async getProductVariant(productId, variantId, filter) {
     const options = {
       url: `${this.url}/one/commerce/products/${productId}/variants/${variantId}?connectionId=${this.connectionId}`,
-      method: 'GET',
+      method: "GET",
       headers: this.headers,
     };
     if (filter) {
@@ -375,7 +379,7 @@ export class Commerce {
   async createProductVariant(productId, data) {
     const options = {
       url: `${this.url}/one/commerce/products/${productId}/variants?connectionId=${this.connectionId}`,
-      method: 'POST',
+      method: "POST",
       headers: this.headers,
       data: data,
     };
@@ -395,7 +399,7 @@ export class Commerce {
   async updateProductVariant(productId, variantId, data) {
     const options = {
       url: `${this.url}/one/commerce/products/${productId}/variants/${variantId}?connectionId=${this.connectionId}`,
-      method: 'PUT',
+      method: "PUT",
       headers: this.headers,
       data: data,
     };
@@ -415,7 +419,7 @@ export class Commerce {
   async deleteProductVariant(productId, variantId) {
     const options = {
       url: `${this.url}/one/commerce/products/${productId}/variants/${variantId}?connectionId=${this.connectionId}`,
-      method: 'DELETE',
+      method: "DELETE",
       headers: this.headers,
     };
 
@@ -434,7 +438,7 @@ export class Commerce {
   async listFulfillments(orderId, filter) {
     const options = {
       url: `${this.url}/one/commerce/orders/${orderId}/fulfillments?connectionId=${this.connectionId}`,
-      method: 'GET',
+      method: "GET",
       headers: this.headers,
     };
     if (filter) {
@@ -456,7 +460,7 @@ export class Commerce {
   async getFulfillmentCount(orderId) {
     const options = {
       url: `${this.url}/one/commerce/orders/${orderId}/fulfillments/count?connectionId=${this.connectionId}`,
-      method: 'GET',
+      method: "GET",
       headers: this.headers,
     };
 
@@ -475,8 +479,8 @@ export class Commerce {
   async getFulfillment(orderId, fulfillmentId, filter) {
     const options = {
       url: `${this.url}/one/commerce/orders/${orderId}/fulfillments/${fulfillmentId}?connectionId=${this.connectionId}`,
-      method: 'POST',
-      headers: this.headers
+      method: "POST",
+      headers: this.headers,
     };
     if (filter) {
       options.url = `${options.url}&${new URLSearchParams(filter).toString()}`;

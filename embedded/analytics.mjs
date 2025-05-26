@@ -24,9 +24,13 @@ export class Analytics {
     this.username = username;
   }
 
+  async setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async get(workflowId) {
     const options = {
-      url: `${baseUrl}/workflows/${workflowId}/analytics`,
+      url: `${this.url}/workflows/${workflowId}/analytics`,
       method: "GET",
       headers: this.headers,
     };
