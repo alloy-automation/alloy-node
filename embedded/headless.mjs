@@ -1,5 +1,5 @@
-import { default as axios } from 'axios';
-import { baseUrl } from '../utils.mjs';
+import { default as axios } from "axios";
+import { baseUrl } from "../utils.mjs";
 
 export class HeadlessInstallation {
   headers = {};
@@ -33,6 +33,10 @@ export class HeadlessInstallation {
    */
   async setUsername(username) {
     this.username = username;
+  }
+
+  async setUrl(regionUrl) {
+    this.url = regionUrl;
   }
 
   /**
@@ -74,8 +78,8 @@ export class HeadlessInstallation {
 
   async start(data) {
     const options = {
-      url: `${baseUrl}/headless/startInstallation`,
-      method: 'POST',
+      url: `${this.url}/headless/startInstallation`,
+      method: "POST",
       headers: this.headers,
       data: {
         userId: this.userId,
@@ -122,8 +126,8 @@ export class HeadlessInstallation {
    */
   async complete(data) {
     const options = {
-      url: `${baseUrl}/headless/completeInstallation`,
-      method: 'POST',
+      url: `${this.url}/headless/completeInstallation`,
+      method: "POST",
       headers: this.headers,
       data,
     };

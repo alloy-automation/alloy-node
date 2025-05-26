@@ -24,9 +24,13 @@ export class Link {
     this.username = username;
   }
 
+  async setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async generate(integrationId) {
     const options = {
-      url: `${baseUrl}/users/${this.userId}/integrations/${integrationId}/install-url`,
+      url: `${this.url}/users/${this.userId}/integrations/${integrationId}/install-url`,
       method: "GET",
       headers: this.headers,
     };

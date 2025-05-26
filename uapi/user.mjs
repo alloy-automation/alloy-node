@@ -1,5 +1,5 @@
-import { default as axios } from 'axios';
-import { baseUrl } from '../utils.mjs';
+import { default as axios } from "axios";
+import { baseUrl } from "../utils.mjs";
 
 export class User {
   headers = {};
@@ -20,10 +20,14 @@ export class User {
     this.connectionId = connectionId;
   }
 
+  async setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async listUsers() {
     const options = {
       url: `${this.url}/one/users`,
-      method: 'GET',
+      method: "GET",
       headers: this.headers,
     };
     try {
@@ -41,7 +45,7 @@ export class User {
   async getUser(userId) {
     const options = {
       url: `${this.url}/one/users/${userId}`,
-      method: 'GET',
+      method: "GET",
       headers: this.headers,
     };
     try {
@@ -59,15 +63,15 @@ export class User {
   async createUser(data) {
     const options = {
       url: `${this.url}/one/users/`,
-      method: 'POST',
+      method: "POST",
       headers: this.headers,
-      data: data
+      data: data,
     };
     try {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-        console.log(err.response)
+      console.log(err.response);
       if (err.response.status === 422) {
         return err.response.data;
       } else {
@@ -79,7 +83,7 @@ export class User {
   async updateUser(userId, data) {
     const options = {
       url: `${this.url}/one/users/${userId}`,
-      method: 'PUT',
+      method: "PUT",
       headers: this.headers,
       data: data,
     };
@@ -99,7 +103,7 @@ export class User {
   async deleteUser(userId) {
     const options = {
       url: `${this.url}/one/users/${userId}`,
-      method: 'DELETE',
+      method: "DELETE",
       headers: this.headers,
     };
 

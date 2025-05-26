@@ -1,5 +1,5 @@
-import { default as axios } from 'axios';
-import { baseUrl } from '../utils.mjs';
+import { default as axios } from "axios";
+import { baseUrl } from "../utils.mjs";
 
 export class Events {
   headers = {};
@@ -24,10 +24,14 @@ export class Events {
     this.username = username;
   }
 
+  async setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async list() {
     const options = {
-      url: `${baseUrl}/events`,
-      method: 'GET',
+      url: `${this.url}/events`,
+      method: "GET",
       headers: this.headers,
       params: {
         userId: this.userId,
@@ -53,8 +57,8 @@ export class Events {
       data,
     };
     const options = {
-      url: `${baseUrl}/run/event`,
-      method: 'POST',
+      url: `${this.url}/run/event`,
+      method: "POST",
       headers: this.headers,
       data: bodyData,
     };

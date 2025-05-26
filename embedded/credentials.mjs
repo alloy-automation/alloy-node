@@ -1,5 +1,5 @@
-import { default as axios } from 'axios';
-import { baseUrl } from '../utils.mjs';
+import { default as axios } from "axios";
+import { baseUrl } from "../utils.mjs";
 
 export class Credentials {
   headers = {};
@@ -24,10 +24,13 @@ export class Credentials {
     this.username = username;
   }
 
+  async setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
   async listUserCredentials() {
     const options = {
-      url: `${baseUrl}/users/${this.userId}/credentials`,
-      method: 'GET',
+      url: `${this.url}/users/${this.userId}/credentials`,
+      method: "GET",
       headers: this.headers,
     };
 
@@ -45,8 +48,8 @@ export class Credentials {
 
   async getMetadata() {
     const options = {
-      url: `${baseUrl}/metadata/credentials`,
-      method: 'GET',
+      url: `${this.url}/metadata/credentials`,
+      method: "GET",
       headers: this.headers,
     };
 
@@ -64,8 +67,8 @@ export class Credentials {
 
   async getMetadataByApp(app) {
     const options = {
-      url: `${baseUrl}/metadata/credentials/${app}`,
-      method: 'GET',
+      url: `${this.url}/metadata/credentials/${app}`,
+      method: "GET",
       headers: this.headers,
     };
 
@@ -83,8 +86,8 @@ export class Credentials {
 
   async delete(credentialId) {
     const options = {
-      url: `${baseUrl}/users/${this.userId}/credentials/${credentialId}`,
-      method: 'DELETE',
+      url: `${this.url}/users/${this.userId}/credentials/${credentialId}`,
+      method: "DELETE",
       headers: this.headers,
     };
 
@@ -117,8 +120,8 @@ export class Credentials {
       data.userId = this.userId;
     }
     const options = {
-      url: `${baseUrl}/headless/credentials`,
-      method: 'POST',
+      url: `${this.url}/headless/credentials`,
+      method: "POST",
       headers: this.headers,
       data: data,
     };
@@ -148,8 +151,8 @@ export class Credentials {
 
   async generateOauthLink(app) {
     const options = {
-      url: `${baseUrl}/headless/oauthUrl`,
-      method: 'GET',
+      url: `${this.url}/headless/oauthUrl`,
+      method: "GET",
       headers: this.headers,
       params: {
         app: app,
