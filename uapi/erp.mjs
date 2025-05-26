@@ -1,5 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class Accounting {
   headers = {};
@@ -29,7 +29,7 @@ export class Accounting {
   async listCompanyInfo(filter) {
     const options = {
       url: `${this.url}/one/accounting/company-info?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -50,7 +50,7 @@ export class Accounting {
   async getCompanyInfoCount() {
     const options = {
       url: `${this.url}/one/accounting/company-info/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -69,7 +69,7 @@ export class Accounting {
   async getCompanyInfo(companyInfoId, filter) {
     const options = {
       url: `${this.url}/one/accounting/company-info/${companyInfoId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -92,7 +92,7 @@ export class Accounting {
   async createAccount(data) {
     const options = {
       url: `${this.url}/one/accounting/accounts?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -112,7 +112,7 @@ export class Accounting {
   async listAccounts(filter) {
     let options = {
       url: `${this.url}/one/accounting/accounts?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -134,7 +134,7 @@ export class Accounting {
   async getAccountCount() {
     const options = {
       url: `${this.url}/one/accounting/accounts/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -153,7 +153,7 @@ export class Accounting {
   async getAccount(accountId, filter) {
     const options = {
       url: `${this.url}/one/accounting/accounts/${accountId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -175,7 +175,7 @@ export class Accounting {
   async updateAccount(accountId, data) {
     const options = {
       url: `${this.url}/one/accounting/accounts/${accountId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -195,7 +195,7 @@ export class Accounting {
   async deleteAccount(accountId) {
     const options = {
       url: `${this.url}/one/accounting/accounts/${accountId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -216,7 +216,7 @@ export class Accounting {
   async createCustomer(data) {
     const options = {
       url: `${this.url}/one/accounting/customers?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -236,7 +236,7 @@ export class Accounting {
   async listCustomers(filter) {
     const options = {
       url: `${this.url}/one/accounting/customers?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -257,7 +257,7 @@ export class Accounting {
   async getCustomerCount() {
     const options = {
       url: `${this.url}/one/accounting/customers/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -276,7 +276,7 @@ export class Accounting {
   async getCustomer(customerId, filter) {
     const options = {
       url: `${this.url}/one/accounting/customers/${customerId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -297,7 +297,7 @@ export class Accounting {
   async updateCustomer(customerId, data) {
     const options = {
       url: `${this.url}/one/accounting/customers/${customerId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -317,7 +317,7 @@ export class Accounting {
   async deleteCustomer(customerId) {
     const options = {
       url: `${this.url}/one/accounting/customers/${customerId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -338,7 +338,7 @@ export class Accounting {
   async createVendor(data) {
     const options = {
       url: `${this.url}/one/accounting/vendors?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -358,7 +358,7 @@ export class Accounting {
   async listVendors(filter) {
     const options = {
       url: `${this.url}/one/accounting/vendors?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -379,7 +379,7 @@ export class Accounting {
   async getVendorCount() {
     const options = {
       url: `${this.url}/one/accounting/vendors/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -398,7 +398,7 @@ export class Accounting {
   async getVendor(vendorId, filter) {
     const options = {
       url: `${this.url}/one/accounting/vendors/${vendorId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -419,7 +419,7 @@ export class Accounting {
   async updateVendor(vendorId, data) {
     const options = {
       url: `${this.url}/one/accounting/vendors/${vendorId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -439,7 +439,7 @@ export class Accounting {
   async deleteVendor(vendorId) {
     const options = {
       url: `${this.url}/one/accounting/vendors/${vendorId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -460,7 +460,7 @@ export class Accounting {
   async listTaxRates(filter) {
     const options = {
       url: `${this.url}/one/accounting/tax-rates?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -481,7 +481,7 @@ export class Accounting {
   async getTaxRateCount() {
     const options = {
       url: `${this.url}/one/accounting/tax-rates/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -500,7 +500,7 @@ export class Accounting {
   async getTaxRate(taxRateId, filter) {
     const options = {
       url: `${this.url}/one/accounting/tax-rates/${taxRateId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -523,7 +523,7 @@ export class Accounting {
   async listTrackingCategory(filter) {
     const options = {
       url: `${this.url}/one/accounting/tracking-categories?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -544,7 +544,7 @@ export class Accounting {
   async getTrackingCategoryCount() {
     const options = {
       url: `${this.url}/one/accounting/tracking-categories/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -563,7 +563,7 @@ export class Accounting {
   async getTrackingCategory(trackingCategoryId, filter) {
     const options = {
       url: `${this.url}/one/accounting/tracking-categories/${trackingCategoryId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -587,7 +587,7 @@ export class Accounting {
   async createItem(data) {
     const options = {
       url: `${this.url}/one/accounting/items?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -607,7 +607,7 @@ export class Accounting {
   async listItems(filter) {
     const options = {
       url: `${this.url}/one/accounting/items?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -628,7 +628,7 @@ export class Accounting {
   async getItemsCount() {
     const options = {
       url: `${this.url}/one/accounting/items/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -647,7 +647,7 @@ export class Accounting {
   async getItem(itemId, filter) {
     const options = {
       url: `${this.url}/one/accounting/items/${itemId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -668,7 +668,7 @@ export class Accounting {
   async updateItem(itemId, data) {
     const options = {
       url: `${this.url}/one/accounting/items/${itemId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -688,7 +688,7 @@ export class Accounting {
   async deleteItem(itemId) {
     const options = {
       url: `${this.url}/one/accounting/items/${itemId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -709,7 +709,7 @@ export class Accounting {
   async createPurchaseOrder(data) {
     const options = {
       url: `${this.url}/one/accounting/purchase-orders?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -729,7 +729,7 @@ export class Accounting {
   async listPurchaseOrders(filter) {
     const options = {
       url: `${this.url}/one/accounting/purchase-orders?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -751,7 +751,7 @@ export class Accounting {
   async getPurchaseOrdersCount() {
     const options = {
       url: `${this.url}/one/accounting/purchase-orders/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -770,7 +770,7 @@ export class Accounting {
   async getPurchaseOrder(purchaseOrderId, filter) {
     const options = {
       url: `${this.url}/one/accounting/purchase-orders/${purchaseOrderId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -791,7 +791,7 @@ export class Accounting {
   async updatePurchaseOrder(purchaseOrderId, data) {
     const options = {
       url: `${this.url}/one/accounting/purchase-orders/${purchaseOrderId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -811,7 +811,7 @@ export class Accounting {
   async deletePurchaseOrder(purchaseOrderId) {
     const options = {
       url: `${this.url}/one/accounting/purchase-orders/${purchaseOrderId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -832,7 +832,7 @@ export class Accounting {
   async createBill(data) {
     const options = {
       url: `${this.url}/one/accounting/bills?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -852,7 +852,7 @@ export class Accounting {
   async listBills(filter) {
     let options = {
       url: `${this.url}/one/accounting/bills?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -874,7 +874,7 @@ export class Accounting {
   async getBillCount() {
     const options = {
       url: `${this.url}/one/accounting/bills/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -893,7 +893,7 @@ export class Accounting {
   async getBill(billId, filter) {
     const options = {
       url: `${this.url}/one/accounting/bills/${billId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -915,7 +915,7 @@ export class Accounting {
   async updateBill(billId, data) {
     const options = {
       url: `${this.url}/one/accounting/bills/${billId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -935,7 +935,7 @@ export class Accounting {
   async deleteBill(billId) {
     const options = {
       url: `${this.url}/one/accounting/accounts/${billId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -956,7 +956,7 @@ export class Accounting {
   async createInvoice(data) {
     const options = {
       url: `${this.url}/one/accounting/invoices?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -976,7 +976,7 @@ export class Accounting {
   async listInvoices(filter) {
     let options = {
       url: `${this.url}/one/accounting/invoices?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -998,7 +998,7 @@ export class Accounting {
   async getInvoiceCount() {
     const options = {
       url: `${this.url}/one/accounting/invoices/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -1017,7 +1017,7 @@ export class Accounting {
   async getInvoice(invoiceId, filter) {
     const options = {
       url: `${this.url}/one/accounting/invoices/${invoiceId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -1039,7 +1039,7 @@ export class Accounting {
   async updateInvoice(invoiceId, data) {
     const options = {
       url: `${this.url}/one/accounting/invoices/${invoiceId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -1059,7 +1059,7 @@ export class Accounting {
   async deleteInvoice(billId) {
     const options = {
       url: `${this.url}/one/accounting/invoices/${billId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -1080,7 +1080,7 @@ export class Accounting {
   async createPayment(data) {
     const options = {
       url: `${this.url}/one/accounting/payments?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -1100,7 +1100,7 @@ export class Accounting {
   async listPayments(filter) {
     let options = {
       url: `${this.url}/one/accounting/payments?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -1122,7 +1122,7 @@ export class Accounting {
   async getPaymentCount() {
     const options = {
       url: `${this.url}/one/accounting/payments/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -1141,7 +1141,7 @@ export class Accounting {
   async getPayment(paymentId, filter) {
     const options = {
       url: `${this.url}/one/accounting/payments/${paymentId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -1163,7 +1163,7 @@ export class Accounting {
   async updatePayment(paymentId, data) {
     const options = {
       url: `${this.url}/one/accounting/payments/${paymentId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -1183,7 +1183,7 @@ export class Accounting {
   async deletePayment(paymentId) {
     const options = {
       url: `${this.url}/one/accounting/payments/${paymentId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -1203,7 +1203,7 @@ export class Accounting {
   async createSalesOrder(data) {
     const options = {
       url: `${this.url}/one/accounting/sales-orders?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -1223,7 +1223,7 @@ export class Accounting {
   async listSalesOrder(filter) {
     const options = {
       url: `${this.url}/one/accounting/sales-orders?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -1245,7 +1245,7 @@ export class Accounting {
   async getSalesOrdersCount() {
     const options = {
       url: `${this.url}/one/accounting/sales-orders/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -1264,7 +1264,7 @@ export class Accounting {
   async getSalesOrder(salesOrderId, filter) {
     const options = {
       url: `${this.url}/one/accounting/sales-orders/${salesOrderId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -1285,7 +1285,7 @@ export class Accounting {
   async updateSalesOrder(salesOrderId, data) {
     const options = {
       url: `${this.url}/one/accounting/sales-orders/${salesOrderId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -1305,7 +1305,7 @@ export class Accounting {
   async deleteSalesOrder(salesOrderId) {
     const options = {
       url: `${this.url}/one/accounting/sales-orders/${salesOrderId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 

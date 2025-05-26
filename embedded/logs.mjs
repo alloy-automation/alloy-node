@@ -1,5 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class Logs {
   headers = {};
@@ -31,7 +31,7 @@ export class Logs {
   async getWorkflowErrors(workflowId) {
     const options = {
       url: `${this.url}/workflows/${workflowId}/errors`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
       params: {
         userId: this.userId,
@@ -53,7 +53,7 @@ export class Logs {
   async getWorkflowLogs(workflowId, page, limit, order, error) {
     const options = {
       url: `${this.url}/workflows/${workflowId}/logs`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
       params: {
         userId: this.userId,
@@ -79,7 +79,7 @@ export class Logs {
   async rerunWorkflowExecution(workflowId, executionId) {
     const options = {
       url: `${this.url}/workflows/${workflowId}/rerun/${executionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       params: {
         userId: this.userId,

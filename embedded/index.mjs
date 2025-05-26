@@ -1,19 +1,19 @@
-import { default as axios } from "axios";
-import { ObjectId } from "mongodb";
-import { baseUrl, euBaseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { ObjectId } from 'mongodb';
+import { baseUrl, euBaseUrl } from '../utils.mjs';
 
-import { User } from "./user.mjs";
-import { App } from "./app.mjs";
-import { Integration } from "./integration.mjs";
-import { Tokens } from "./token.mjs";
-import { Workflows } from "./workflow.mjs";
-import { Events } from "./event.mjs";
-import { Compliance } from "./compliance.mjs";
-import { Logs } from "./logs.mjs";
-import { Credentials } from "./credentials.mjs";
-import { Link } from "./link.mjs";
-import { Analytics } from "./analytics.mjs";
-import { HeadlessInstallation } from "./headless.mjs";
+import { User } from './user.mjs';
+import { App } from './app.mjs';
+import { Integration } from './integration.mjs';
+import { Tokens } from './token.mjs';
+import { Workflows } from './workflow.mjs';
+import { Events } from './event.mjs';
+import { Compliance } from './compliance.mjs';
+import { Logs } from './logs.mjs';
+import { Credentials } from './credentials.mjs';
+import { Link } from './link.mjs';
+import { Analytics } from './analytics.mjs';
+import { HeadlessInstallation } from './headless.mjs';
 
 export class Embedded {
   headers = {};
@@ -49,7 +49,7 @@ export class Embedded {
   async identify(username) {
     const options = {
       url: `${this.url}/users/${username}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
       data: {},
     };
@@ -91,7 +91,7 @@ export class Embedded {
   }
 
   async setRegion(region) {
-    const regionUrl = region.toLowerCase() === "eu" ? euBaseUrl : baseUrl;
+    const regionUrl = region.toLowerCase() === 'eu' ? euBaseUrl : baseUrl;
     try {
       this.User.setUrl(regionUrl);
       this.App.setUrl(regionUrl);

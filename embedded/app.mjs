@@ -1,5 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class App {
   headers = {};
@@ -31,7 +31,7 @@ export class App {
   async getApps() {
     const options = {
       url: `${this.url}/metadata/apps`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 

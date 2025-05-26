@@ -1,5 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class User {
   headers = {};
@@ -30,7 +30,7 @@ export class User {
   async getUser() {
     const options = {
       url: `${this.url}/users/${this.userId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -49,7 +49,7 @@ export class User {
   async listUsers() {
     const options = {
       url: `${this.url}/users`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -68,7 +68,7 @@ export class User {
   async createUser(data) {
     const options = {
       url: `${this.url}/users`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -88,7 +88,7 @@ export class User {
   async createBatchUsers(data) {
     const options = {
       url: `${this.url}/users/batch`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -108,7 +108,7 @@ export class User {
   async updateUser(data) {
     const options = {
       url: `${this.url}/users/${this.userId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -128,7 +128,7 @@ export class User {
   async deleteUser() {
     const options = {
       url: `${this.url}/users/${this.userId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 

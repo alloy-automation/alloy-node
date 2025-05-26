@@ -1,5 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class Webhooks {
   headers = {};
@@ -35,7 +35,7 @@ export class Webhooks {
   async listSubscriptions() {
     const options = {
       url: `${this.url}/one/webhooks?userId=${data.userId}&connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -54,7 +54,7 @@ export class Webhooks {
   async getSubscription(subscriptionId) {
     const options = {
       url: `${this.url}/one/webhooks/${subscriptionId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -73,7 +73,7 @@ export class Webhooks {
   async createSubscription(data) {
     const options = {
       url: `${this.url}/one/webhooks?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -93,7 +93,7 @@ export class Webhooks {
   async deleteSubscription(data) {
     const options = {
       url: `${this.url}/one/webhooks/${data.subscriptionId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 

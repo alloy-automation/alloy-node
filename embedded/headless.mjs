@@ -1,5 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class HeadlessInstallation {
   headers = {};
@@ -79,7 +79,7 @@ export class HeadlessInstallation {
   async start(data) {
     const options = {
       url: `${this.url}/headless/startInstallation`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: {
         userId: this.userId,
@@ -127,7 +127,7 @@ export class HeadlessInstallation {
   async complete(data) {
     const options = {
       url: `${this.url}/headless/completeInstallation`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data,
     };

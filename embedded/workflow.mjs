@@ -1,5 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class Workflows {
   headers = {};
@@ -31,7 +31,7 @@ export class Workflows {
   async list() {
     const options = {
       url: `${this.url}/workflows`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
       params: {
         userId: this.userId,
@@ -53,7 +53,7 @@ export class Workflows {
   async listVersions(workflowId) {
     const options = {
       url: `${this.url}/workflows/${workflowId}/versions`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
       params: {
         userId: this.userId,
@@ -75,7 +75,7 @@ export class Workflows {
   async get(workflowId) {
     const options = {
       url: `${this.url}/workflows/${workflowId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
       params: {
         userId: this.userId,
@@ -97,7 +97,7 @@ export class Workflows {
   async deactivateAll() {
     const options = {
       url: `${this.url}/users/${this.userId}/deactivate-workflows`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
     };
 
@@ -120,7 +120,7 @@ export class Workflows {
     };
     const options = {
       url: `${this.url}/workflows/activate`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -144,7 +144,7 @@ export class Workflows {
     };
     const options = {
       url: `${this.url}/workflows/deactivate`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -164,7 +164,7 @@ export class Workflows {
   async upgrade(workflowId) {
     const options = {
       url: `${this.url}/workflows/${workflowId}/upgrade`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       params: {
         userId: this.userId,
@@ -185,7 +185,7 @@ export class Workflows {
   async delete(workflowId) {
     const options = {
       url: `${this.url}/workflows/${workflowId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
       params: {
         userId: this.userId,

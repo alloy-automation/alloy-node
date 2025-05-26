@@ -1,5 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class CRM {
   headers = {};
@@ -31,7 +31,7 @@ export class CRM {
   async listAccounts(filter) {
     const options = {
       url: `${this.url}/one/crm/accounts?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -53,7 +53,7 @@ export class CRM {
   async getAccountsCount() {
     const options = {
       url: `${this.url}/one/crm/accounts/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -72,7 +72,7 @@ export class CRM {
   async getAccount(accountId, filter) {
     const options = {
       url: `${this.url}/one/crm/accounts/${accountId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -94,7 +94,7 @@ export class CRM {
   async createAccount(data) {
     const options = {
       url: `${this.url}/one/crm/accounts?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -114,7 +114,7 @@ export class CRM {
   async updateAccount(accountId, data) {
     const options = {
       url: `${this.url}/one/crm/accounts/${accountId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -134,7 +134,7 @@ export class CRM {
   async deleteAccount(accountId) {
     const options = {
       url: `${this.url}/one/crm/accounts/${accountId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -153,7 +153,7 @@ export class CRM {
   async listContacts(filter) {
     const options = {
       url: `${this.url}/one/crm/contacts?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -175,7 +175,7 @@ export class CRM {
   async getContactsCount() {
     const options = {
       url: `${this.url}/one/crm/contacts/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -194,7 +194,7 @@ export class CRM {
   async getContact(contactId, filter) {
     const options = {
       url: `${this.url}/one/crm/contacts/${contactId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -216,7 +216,7 @@ export class CRM {
   async createContact(data) {
     const options = {
       url: `${this.url}/one/crm/contacts?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -236,7 +236,7 @@ export class CRM {
   async updateContact(contactId, data) {
     const options = {
       url: `${this.url}/one/crm/contacts/${contactId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -256,7 +256,7 @@ export class CRM {
   async deleteContact(contactId) {
     const options = {
       url: `${this.url}/one/crm/contacts/${contactId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -275,7 +275,7 @@ export class CRM {
   async listLeads(filter) {
     const options = {
       url: `${this.url}/one/crm/leads?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -297,7 +297,7 @@ export class CRM {
   async getLeadsCount() {
     const options = {
       url: `${this.url}/one/crm/leads/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -316,7 +316,7 @@ export class CRM {
   async getLead(leadId, filter) {
     const options = {
       url: `${this.url}/one/crm/leads/${leadId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -338,7 +338,7 @@ export class CRM {
   async createLead(data) {
     const options = {
       url: `${this.url}/one/crm/leads?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -358,7 +358,7 @@ export class CRM {
   async updateLead(leadId, data) {
     const options = {
       url: `${this.url}/one/crm/leads/${leadId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -378,7 +378,7 @@ export class CRM {
   async deleteLead(leadId) {
     const options = {
       url: `${this.url}/one/crm/leads/${leadId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -397,7 +397,7 @@ export class CRM {
   async listNotes(filter) {
     const options = {
       url: `${this.url}/one/crm/notes?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -419,7 +419,7 @@ export class CRM {
   async getNotesCount() {
     const options = {
       url: `${this.url}/one/crm/notes/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -438,7 +438,7 @@ export class CRM {
   async getNote(noteId, filter) {
     const options = {
       url: `${this.url}/one/crm/notes/${noteId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -460,7 +460,7 @@ export class CRM {
   async createNote(data) {
     const options = {
       url: `${this.url}/one/crm/notes?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -480,7 +480,7 @@ export class CRM {
   async updateNote(noteId, data) {
     const options = {
       url: `${this.url}/one/crm/notes/${noteId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -500,7 +500,7 @@ export class CRM {
   async deleteNote(noteId) {
     const options = {
       url: `${this.url}/one/crm/notes/${noteId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -519,7 +519,7 @@ export class CRM {
   async listTasks(filter) {
     const options = {
       url: `${this.url}/one/crm/tasks?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -541,7 +541,7 @@ export class CRM {
   async getTasksCount() {
     const options = {
       url: `${this.url}/one/crm/tasks/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -560,7 +560,7 @@ export class CRM {
   async getTask(taskId, filter) {
     const options = {
       url: `${this.url}/one/crm/tasks/${taskId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -581,7 +581,7 @@ export class CRM {
   async createTask(data) {
     const options = {
       url: `${this.url}/one/crm/tasks?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -601,7 +601,7 @@ export class CRM {
   async updateTask(taskId, data) {
     const options = {
       url: `${this.url}/one/crm/tasks/${taskId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -621,7 +621,7 @@ export class CRM {
   async deleteTask(taskId) {
     const options = {
       url: `${this.url}/one/crm/tasks/${taskId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -640,7 +640,7 @@ export class CRM {
   async listOpportunities(filter) {
     const options = {
       url: `${this.url}/one/crm/opportunities?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -662,7 +662,7 @@ export class CRM {
   async getOpportunitiesCount() {
     const options = {
       url: `${this.url}/one/crm/opportunities/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -681,7 +681,7 @@ export class CRM {
   async getOpportunity(opportunityId, filter) {
     const options = {
       url: `${this.url}/one/crm/opportunities/${opportunityId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -703,7 +703,7 @@ export class CRM {
   async createOpportunity(data) {
     const options = {
       url: `${this.url}/one/crm/opportunities?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -723,7 +723,7 @@ export class CRM {
   async updateOpportunity(opportunityId, data) {
     const options = {
       url: `${this.url}/one/crm/opportunities/${opportunityId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -743,7 +743,7 @@ export class CRM {
   async deleteOpportunity(opportunityId) {
     const options = {
       url: `${this.url}/one/crm/opportunities/${opportunityId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -762,7 +762,7 @@ export class CRM {
   async listUsers(filter) {
     const options = {
       url: `${this.url}/one/crm/users?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -783,7 +783,7 @@ export class CRM {
   async listUsersCount() {
     const options = {
       url: `${this.url}/one/crm/users/count?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -802,7 +802,7 @@ export class CRM {
   async getUser(userId, filter) {
     const options = {
       url: `${this.url}/one/crm/users/${userId}?connectionId=${this.connectionId}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
     if (filter) {
@@ -824,7 +824,7 @@ export class CRM {
   async createUser(data) {
     const options = {
       url: `${this.url}/one/crm/users?connectionId=${this.connectionId}`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -844,7 +844,7 @@ export class CRM {
   async updateUser(userId, data) {
     const options = {
       url: `${this.url}/one/crm/users/${userId}?connectionId=${this.connectionId}`,
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -864,7 +864,7 @@ export class CRM {
   async deleteUser(userId) {
     const options = {
       url: `${this.url}/one/crm/users/${userId}?connectionId=${this.connectionId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 

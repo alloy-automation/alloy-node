@@ -1,5 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class Credentials {
   headers = {};
@@ -30,7 +30,7 @@ export class Credentials {
   async listUserCredentials() {
     const options = {
       url: `${this.url}/users/${this.userId}/credentials`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -49,7 +49,7 @@ export class Credentials {
   async getMetadata() {
     const options = {
       url: `${this.url}/metadata/credentials`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -68,7 +68,7 @@ export class Credentials {
   async getMetadataByApp(app) {
     const options = {
       url: `${this.url}/metadata/credentials/${app}`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -87,7 +87,7 @@ export class Credentials {
   async delete(credentialId) {
     const options = {
       url: `${this.url}/users/${this.userId}/credentials/${credentialId}`,
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     };
 
@@ -121,7 +121,7 @@ export class Credentials {
     }
     const options = {
       url: `${this.url}/headless/credentials`,
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -152,7 +152,7 @@ export class Credentials {
   async generateOauthLink(app) {
     const options = {
       url: `${this.url}/headless/oauthUrl`,
-      method: "GET",
+      method: 'GET',
       headers: this.headers,
       params: {
         app: app,
