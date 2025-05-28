@@ -91,7 +91,7 @@ export class Embedded {
   }
 
   async setRegion(region) {
-    const regionUrl = region.toLowerCase() === 'eu' ? euBaseUrl : baseUrl;
+    const regionUrl = this.getDomain(region);
     try {
       this.User.setUrl(regionUrl);
       this.App.setUrl(regionUrl);
@@ -107,6 +107,18 @@ export class Embedded {
       this.HeadlessInstallation.setUrl(regionUrl);
       this.url = regionUrl;
     } catch (error) {}
+  }
+
+  getDomain(region) {
+    const DEFAULT_REGION = 'us';
+    const DOMAIN_MAP = {
+      us: baseUrl,
+      eu: euBaseUrl,
+    };
+
+    const key = region ? region.toLowerCase() : DEFAULT_REGION;
+
+    return DOMAIN_MAP[key];
   }
 
   clear() {

@@ -54,7 +54,7 @@ export class UAPI {
   }
 
   async setRegion(region) {
-    const regionUrl = region.toLowerCase() === 'eu' ? euBaseUrl : baseUrl;
+    const regionUrl = this.getDomain(region);
     try {
       this.CRM.setUrl(regionUrl);
       this.Commerce.setUrl(regionUrl);
@@ -70,6 +70,18 @@ export class UAPI {
     this.Commerce.connect(connectionId);
     this.Accounting.connect(connectionId);
     this.Webhooks.connect(connectionId);
+  }
+
+  getDomain(region) {
+    const DEFAULT_REGION = 'us';
+    const DOMAIN_MAP = {
+      us: baseUrl,
+      eu: euBaseUrl,
+    };
+
+    const key = region ? region.toLowerCase() : DEFAULT_REGION;
+
+    return DOMAIN_MAP[key];
   }
 
   clear() {
