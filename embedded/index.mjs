@@ -106,7 +106,9 @@ export class Embedded {
       this.Analytics.setUrl(regionUrl);
       this.HeadlessInstallation.setUrl(regionUrl);
       this.url = regionUrl;
-    } catch (error) {}
+    } catch (error) {
+      throw error;
+    }
   }
 
   getDomain(region) {
@@ -117,6 +119,10 @@ export class Embedded {
     };
 
     const key = region ? region.toLowerCase() : DEFAULT_REGION;
+
+    if (!DOMAIN_MAP[key]) {
+      throw new Error(`Invalid region: ${region}`);
+    }
 
     return DOMAIN_MAP[key];
   }

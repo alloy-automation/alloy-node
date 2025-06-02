@@ -20,7 +20,7 @@ export class Commerce {
     this.userId = userId;
   }
 
-  async setUrl(regionUrl) {
+  setUrl(regionUrl) {
     this.url = regionUrl;
   }
 

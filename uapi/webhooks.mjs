@@ -24,7 +24,7 @@ export class Webhooks {
     this.connectionId = connectionId;
   }
 
-  async setUrl(regionUrl) {
+  setUrl(regionUrl) {
     this.url = regionUrl;
   }
 

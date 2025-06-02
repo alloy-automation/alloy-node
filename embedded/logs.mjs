@@ -24,7 +24,7 @@ export class Logs {
     this.username = username;
   }
 
-  async setUrl(regionUrl) {
+  setUrl(regionUrl) {
     this.url = regionUrl;
   }
 

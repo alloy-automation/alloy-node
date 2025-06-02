@@ -24,7 +24,7 @@ export class Link {
     this.username = username;
   }
 
-  async setUrl(regionUrl) {
+  setUrl(regionUrl) {
     this.url = regionUrl;
   }
 

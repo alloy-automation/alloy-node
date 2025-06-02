@@ -20,6 +20,32 @@ Or using yarn:
 yarn add alloy-node
 ```
 
+## Configuration
+
+### Setting the Region
+
+The `alloy-node` library allows you to configure the region for API requests using the `setRegion` method. This method sets the appropriate domain for all API calls based on the specified region (e.g., `us` or `eu`). If no region is provided, it defaults to `us`. The method updates the base URL for all services (`User`, `App`, `Integration`, `Tokens`, `Workflows`, `Events`, `Compliance`, `Logs`, `Credentials`, `Link`, `Analytics`, and `HeadlessInstallation`).
+
+**Usage Example:**
+
+```javascript
+import { Embedded, UAPI } from 'alloy-node';
+
+// Initialize the API client
+const apiClient = new Embedded('MY_API_KEY...');
+
+// Set the region to 'eu'
+await apiClient.setRegion('eu');
+```
+
+**Notes:**
+
+- Supported regions are `us` and `eu`. Attempting to set an invalid region will throw an error.
+- Call `setRegion` before making any API requests to ensure the correct domain is used.
+- If no region is specified, the default region (`us`) is used.
+
+For more details, refer to the [Alloy Docs](https://docs.runalloy.com/docs).
+
 # Usage
 
 The package needs to be configured with your account's API key, which is available in the Alloy Dashboard under settings. You must supply the API key with each instantiation of the module.
@@ -29,9 +55,12 @@ The package needs to be configured with your account's API key, which is availab
 To set up Alloy's Unified API, use the code snippet below:
 
 ```javascript
-import { Embedded, UAPI } from "alloy-node";
+import { Embedded, UAPI } from 'alloy-node';
 
-const apiClient = new UAPI("MY_API_KEY...");
+const apiClient = new UAPI('MY_API_KEY...');
+
+// Set the region to 'eu' / 'us'
+await apiClient.setRegion(<Region>);
 ```
 
 ### Creating a User
@@ -78,9 +107,12 @@ Alloy Unified API currently offers three models:
 To set up Alloy's Embedded iPaaS, use the code snippet below:
 
 ```javascript
-import { Embedded } from "alloy-node";
+import { Embedded } from 'alloy-node';
 
-const apiClient = new Embedded("MY_API_KEY...);
+const apiClient = new Embedded('MY_API_KEY...');
+
+// Set the region to 'eu' / 'us'
+await apiClient.setRegion(<Region>);
 ```
 
 ### Creating a User
@@ -99,7 +131,7 @@ Once you've created a user, you'll need to `identify` that user each time you ma
 Pass a `userId` to the `identify()` method as seen below:
 
 ```javascript
-await apiClient.identify("YOUR_USER_ID");
+await apiClient.identify('YOUR_USER_ID');
 ```
 
 ### Obtain a workflowId
@@ -111,7 +143,7 @@ Before you can make API calls to Alloy Embedded, you will need to install a work
 Once you have a workflowId, you can make requests
 
 ```javascript
-await apiClient.identify("YOUR_USER_ID");
+await apiClient.identify('YOUR_USER_ID');
 let data = await apiClient.Workflows.list();
 ```
 

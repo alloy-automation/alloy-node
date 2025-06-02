@@ -24,7 +24,7 @@ export class Workflows {
     this.username = username;
   }
 
-  async setUrl(regionUrl) {
+  setUrl(regionUrl) {
     this.url = regionUrl;
   }
 

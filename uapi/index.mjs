@@ -61,7 +61,9 @@ export class UAPI {
       this.Accounting.setUrl(regionUrl);
       this.Webhooks.setUrl(regionUrl);
       this.url = regionUrl;
-    } catch (error) {}
+    } catch (error) {
+      throw error;
+    }
   }
 
   async connect(connectionId) {
@@ -80,6 +82,10 @@ export class UAPI {
     };
 
     const key = region ? region.toLowerCase() : DEFAULT_REGION;
+
+    if (!DOMAIN_MAP[key]) {
+      throw new Error(`Invalid region: ${region}`);
+    }
 
     return DOMAIN_MAP[key];
   }

@@ -24,7 +24,7 @@ export class CRM {
     this.connectionId = connectionId;
   }
 
-  async setUrl(regionUrl) {
+  setUrl(regionUrl) {
     this.url = regionUrl;
   }
 

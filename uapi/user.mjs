@@ -20,7 +20,7 @@ export class User {
     this.connectionId = connectionId;
   }
 
-  async setUrl(regionUrl) {
+  setUrl(regionUrl) {
     this.url = regionUrl;
   }
 
