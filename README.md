@@ -34,8 +34,8 @@ import { Embedded, UAPI } from 'alloy-node';
 // Initialize the API client
 const apiClient = new Embedded('MY_API_KEY...');
 
-// Set the region to 'eu'
-await apiClient.setRegion('eu');
+// Set the region to 'eu' / 'us'
+apiClient.setRegion(<Region>);
 ```
 
 **Notes:**
@@ -60,7 +60,7 @@ import { Embedded, UAPI } from 'alloy-node';
 const apiClient = new UAPI('MY_API_KEY...');
 
 // Set the region to 'eu' / 'us'
-await apiClient.setRegion(<Region>);
+apiClient.setRegion(<Region>);
 ```
 
 ### Creating a User
@@ -112,7 +112,7 @@ import { Embedded } from 'alloy-node';
 const apiClient = new Embedded('MY_API_KEY...');
 
 // Set the region to 'eu' / 'us'
-await apiClient.setRegion(<Region>);
+apiClient.setRegion(<Region>);
 ```
 
 ### Creating a User

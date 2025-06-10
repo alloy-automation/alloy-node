@@ -53,7 +53,7 @@ export class UAPI {
     }
   }
 
-  async setRegion(region) {
+  setRegion(region) {
     const regionUrl = this.getDomain(region);
     try {
       this.CRM.setUrl(regionUrl);

@@ -90,7 +90,7 @@ export class Embedded {
     }
   }
 
-  async setRegion(region) {
+  setRegion(region) {
     const regionUrl = this.getDomain(region);
     try {
       this.User.setUrl(regionUrl);
