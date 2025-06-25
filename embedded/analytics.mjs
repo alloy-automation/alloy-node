@@ -1,5 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class Analytics {
   headers = {};
@@ -24,10 +24,14 @@ export class Analytics {
     this.username = username;
   }
 
+  setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async get(workflowId) {
     const options = {
-      url: `${baseUrl}/workflows/${workflowId}/analytics`,
-      method: "GET",
+      url: `${this.url}/workflows/${workflowId}/analytics`,
+      method: 'GET',
       headers: this.headers,
     };
 

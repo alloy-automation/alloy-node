@@ -1,6 +1,6 @@
 import { default as axios } from 'axios';
 import { ObjectId } from 'mongodb';
-import { baseUrl } from '../utils.mjs';
+import { baseUrl, euBaseUrl } from '../utils.mjs';
 
 import { User } from './user.mjs';
 import { App } from './app.mjs';
@@ -48,7 +48,7 @@ export class Embedded {
 
   async identify(username) {
     const options = {
-      url: `${baseUrl}/users/${username}`,
+      url: `${this.url}/users/${username}`,
       method: 'GET',
       headers: this.headers,
       data: {},
@@ -88,6 +88,43 @@ export class Embedded {
       this.userId = null;
       throw err.response.data.message;
     }
+  }
+
+  setRegion(region) {
+    const regionUrl = this.getDomain(region);
+    try {
+      this.User.setUrl(regionUrl);
+      this.App.setUrl(regionUrl);
+      this.Integration.setUrl(regionUrl);
+      this.Tokens.setUrl(regionUrl);
+      this.Workflows.setUrl(regionUrl);
+      this.Events.setUrl(regionUrl);
+      this.Compliance.setUrl(regionUrl);
+      this.Logs.setUrl(regionUrl);
+      this.Credentials.setUrl(regionUrl);
+      this.Link.setUrl(regionUrl);
+      this.Analytics.setUrl(regionUrl);
+      this.HeadlessInstallation.setUrl(regionUrl);
+      this.url = regionUrl;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  getDomain(region) {
+    const DEFAULT_REGION = 'us';
+    const DOMAIN_MAP = {
+      us: baseUrl,
+      eu: euBaseUrl,
+    };
+
+    const key = region ? region.toLowerCase() : DEFAULT_REGION;
+
+    if (!DOMAIN_MAP[key]) {
+      throw new Error(`Invalid region: ${region}`);
+    }
+
+    return DOMAIN_MAP[key];
   }
 
   clear() {

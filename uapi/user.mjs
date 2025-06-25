@@ -20,6 +20,10 @@ export class User {
     this.connectionId = connectionId;
   }
 
+  setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async listUsers() {
     const options = {
       url: `${this.url}/one/users`,
@@ -61,13 +65,13 @@ export class User {
       url: `${this.url}/one/users/`,
       method: 'POST',
       headers: this.headers,
-      data: data
+      data: data,
     };
     try {
       const responseData = await axios.request(options);
       return responseData?.data;
     } catch (err) {
-        console.log(err.response)
+      console.log(err.response);
       if (err.response.status === 422) {
         return err.response.data;
       } else {

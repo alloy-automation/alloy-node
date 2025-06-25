@@ -1,6 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
-import { Embedded } from "./index.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class User {
   headers = {};
@@ -25,10 +24,13 @@ export class User {
     this.username = username;
   }
 
+  setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
   async getUser() {
     const options = {
-      url: `${baseUrl}/users/${this.userId}`,
-      method: "GET",
+      url: `${this.url}/users/${this.userId}`,
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -46,8 +48,8 @@ export class User {
 
   async listUsers() {
     const options = {
-      url: `${baseUrl}/users`,
-      method: "GET",
+      url: `${this.url}/users`,
+      method: 'GET',
       headers: this.headers,
     };
 
@@ -65,8 +67,8 @@ export class User {
 
   async createUser(data) {
     const options = {
-      url: `${baseUrl}/users`,
-      method: "POST",
+      url: `${this.url}/users`,
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -85,8 +87,8 @@ export class User {
 
   async createBatchUsers(data) {
     const options = {
-      url: `${baseUrl}/users/batch`,
-      method: "POST",
+      url: `${this.url}/users/batch`,
+      method: 'POST',
       headers: this.headers,
       data: data,
     };
@@ -105,8 +107,8 @@ export class User {
 
   async updateUser(data) {
     const options = {
-      url: `${baseUrl}/users/${this.userId}`,
-      method: "PUT",
+      url: `${this.url}/users/${this.userId}`,
+      method: 'PUT',
       headers: this.headers,
       data: data,
     };
@@ -125,8 +127,8 @@ export class User {
 
   async deleteUser() {
     const options = {
-      url: `${baseUrl}/users/${this.userId}`,
-      method: "DELETE",
+      url: `${this.url}/users/${this.userId}`,
+      method: 'DELETE',
       headers: this.headers,
     };
 

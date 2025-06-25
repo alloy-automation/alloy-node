@@ -24,9 +24,13 @@ export class Workflows {
     this.username = username;
   }
 
+  setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async list() {
     const options = {
-      url: `${baseUrl}/workflows`,
+      url: `${this.url}/workflows`,
       method: 'GET',
       headers: this.headers,
       params: {
@@ -48,7 +52,7 @@ export class Workflows {
 
   async listVersions(workflowId) {
     const options = {
-      url: `${baseUrl}/workflows/${workflowId}/versions`,
+      url: `${this.url}/workflows/${workflowId}/versions`,
       method: 'GET',
       headers: this.headers,
       params: {
@@ -70,7 +74,7 @@ export class Workflows {
 
   async get(workflowId) {
     const options = {
-      url: `${baseUrl}/workflows/${workflowId}`,
+      url: `${this.url}/workflows/${workflowId}`,
       method: 'GET',
       headers: this.headers,
       params: {
@@ -92,7 +96,7 @@ export class Workflows {
 
   async deactivateAll() {
     const options = {
-      url: `${baseUrl}/users/${this.userId}/deactivate-workflows`,
+      url: `${this.url}/users/${this.userId}/deactivate-workflows`,
       method: 'PUT',
       headers: this.headers,
     };
@@ -115,7 +119,7 @@ export class Workflows {
       userId: this.userId,
     };
     const options = {
-      url: `${baseUrl}/workflows/activate`,
+      url: `${this.url}/workflows/activate`,
       method: 'PUT',
       headers: this.headers,
       data: data,
@@ -139,7 +143,7 @@ export class Workflows {
       userId: this.userId,
     };
     const options = {
-      url: `${baseUrl}/workflows/deactivate`,
+      url: `${this.url}/workflows/deactivate`,
       method: 'PUT',
       headers: this.headers,
       data: data,
@@ -159,7 +163,7 @@ export class Workflows {
 
   async upgrade(workflowId) {
     const options = {
-      url: `${baseUrl}/workflows/${workflowId}/upgrade`,
+      url: `${this.url}/workflows/${workflowId}/upgrade`,
       method: 'PUT',
       headers: this.headers,
       params: {
@@ -180,7 +184,7 @@ export class Workflows {
 
   async delete(workflowId) {
     const options = {
-      url: `${baseUrl}/workflows/${workflowId}`,
+      url: `${this.url}/workflows/${workflowId}`,
       method: 'DELETE',
       headers: this.headers,
       params: {

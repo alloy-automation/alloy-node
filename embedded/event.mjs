@@ -24,9 +24,13 @@ export class Events {
     this.username = username;
   }
 
+  setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async list() {
     const options = {
-      url: `${baseUrl}/events`,
+      url: `${this.url}/events`,
       method: 'GET',
       headers: this.headers,
       params: {
@@ -53,7 +57,7 @@ export class Events {
       data,
     };
     const options = {
-      url: `${baseUrl}/run/event`,
+      url: `${this.url}/run/event`,
       method: 'POST',
       headers: this.headers,
       data: bodyData,

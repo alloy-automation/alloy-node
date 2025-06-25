@@ -24,9 +24,13 @@ export class Logs {
     this.username = username;
   }
 
+  setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async getWorkflowErrors(workflowId) {
     const options = {
-      url: `${baseUrl}/workflows/${workflowId}/errors`,
+      url: `${this.url}/workflows/${workflowId}/errors`,
       method: 'GET',
       headers: this.headers,
       params: {
@@ -48,7 +52,7 @@ export class Logs {
 
   async getWorkflowLogs(workflowId, page, limit, order, error) {
     const options = {
-      url: `${baseUrl}/workflows/${workflowId}/logs`,
+      url: `${this.url}/workflows/${workflowId}/logs`,
       method: 'GET',
       headers: this.headers,
       params: {
@@ -74,7 +78,7 @@ export class Logs {
 
   async rerunWorkflowExecution(workflowId, executionId) {
     const options = {
-      url: `${baseUrl}/workflows/${workflowId}/rerun/${executionId}`,
+      url: `${this.url}/workflows/${workflowId}/rerun/${executionId}`,
       method: 'POST',
       headers: this.headers,
       params: {

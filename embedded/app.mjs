@@ -24,9 +24,13 @@ export class App {
     this.username = username;
   }
 
+  setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async getApps() {
     const options = {
-      url: `${baseUrl}/metadata/apps`,
+      url: `${this.url}/metadata/apps`,
       method: 'GET',
       headers: this.headers,
     };

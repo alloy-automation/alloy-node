@@ -24,9 +24,13 @@ export class Tokens {
     this.username = username;
   }
 
+  setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async listIntegrations() {
     const options = {
-      url: `${baseUrl}/integrations?userId=${this.userId}`,
+      url: `${this.url}/integrations?userId=${this.userId}`,
       method: 'GET',
       headers: this.headers,
       params: {
@@ -48,7 +52,7 @@ export class Tokens {
 
   async get() {
     const options = {
-      url: `${baseUrl}/users/${this.userId}/token`,
+      url: `${this.url}/users/${this.userId}/token`,
       method: 'GET',
       headers: this.headers,
     };

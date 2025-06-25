@@ -1,5 +1,5 @@
 import { default as axios } from 'axios';
-import { baseUrl } from '../utils.mjs';
+import { baseUrl, euBaseUrl } from '../utils.mjs';
 
 import { CRM } from './crm.mjs';
 import { Accounting } from './erp.mjs';
@@ -53,12 +53,41 @@ export class UAPI {
     }
   }
 
+  setRegion(region) {
+    const regionUrl = this.getDomain(region);
+    try {
+      this.CRM.setUrl(regionUrl);
+      this.Commerce.setUrl(regionUrl);
+      this.Accounting.setUrl(regionUrl);
+      this.Webhooks.setUrl(regionUrl);
+      this.url = regionUrl;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async connect(connectionId) {
     this.connectionId = connectionId;
     this.CRM.connect(connectionId);
     this.Commerce.connect(connectionId);
     this.Accounting.connect(connectionId);
     this.Webhooks.connect(connectionId);
+  }
+
+  getDomain(region) {
+    const DEFAULT_REGION = 'us';
+    const DOMAIN_MAP = {
+      us: baseUrl,
+      eu: euBaseUrl,
+    };
+
+    const key = region ? region.toLowerCase() : DEFAULT_REGION;
+
+    if (!DOMAIN_MAP[key]) {
+      throw new Error(`Invalid region: ${region}`);
+    }
+
+    return DOMAIN_MAP[key];
   }
 
   clear() {

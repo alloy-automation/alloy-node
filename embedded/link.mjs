@@ -1,5 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class Link {
   headers = {};
@@ -24,10 +24,14 @@ export class Link {
     this.username = username;
   }
 
+  setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async generate(integrationId) {
     const options = {
-      url: `${baseUrl}/users/${this.userId}/integrations/${integrationId}/install-url`,
-      method: "GET",
+      url: `${this.url}/users/${this.userId}/integrations/${integrationId}/install-url`,
+      method: 'GET',
       headers: this.headers,
     };
 

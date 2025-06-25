@@ -35,6 +35,10 @@ export class HeadlessInstallation {
     this.username = username;
   }
 
+  setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   /**
    * @typedef DropdownOptions
    * @property {string} displayName - The label for the dropdown option
@@ -74,7 +78,7 @@ export class HeadlessInstallation {
 
   async start(data) {
     const options = {
-      url: `${baseUrl}/headless/startInstallation`,
+      url: `${this.url}/headless/startInstallation`,
       method: 'POST',
       headers: this.headers,
       data: {
@@ -122,7 +126,7 @@ export class HeadlessInstallation {
    */
   async complete(data) {
     const options = {
-      url: `${baseUrl}/headless/completeInstallation`,
+      url: `${this.url}/headless/completeInstallation`,
       method: 'POST',
       headers: this.headers,
       data,

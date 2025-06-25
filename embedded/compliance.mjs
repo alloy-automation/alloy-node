@@ -1,5 +1,5 @@
-import { default as axios } from "axios";
-import { baseUrl } from "../utils.mjs";
+import { default as axios } from 'axios';
+import { baseUrl } from '../utils.mjs';
 
 export class Compliance {
   headers = {};
@@ -24,10 +24,14 @@ export class Compliance {
     this.username = username;
   }
 
+  setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async deleteUserLogs() {
     const options = {
-      url: `${baseUrl}/users/${this.userId}/logs`,
-      method: "DELETE",
+      url: `${this.url}/users/${this.userId}/logs`,
+      method: 'DELETE',
       headers: this.headers,
     };
 

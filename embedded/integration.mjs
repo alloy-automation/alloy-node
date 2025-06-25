@@ -24,9 +24,13 @@ export class Integration {
     this.username = username;
   }
 
+  setUrl(regionUrl) {
+    this.url = regionUrl;
+  }
+
   async listIntegrations() {
     const options = {
-      url: `${baseUrl}/integrations`,
+      url: `${this.url}/integrations`,
       method: 'GET',
       headers: this.headers,
       params: {
@@ -48,7 +52,7 @@ export class Integration {
 
   async getIntegration(integrationId) {
     const options = {
-      url: `${baseUrl}/integrations/${integrationId}`,
+      url: `${this.url}/integrations/${integrationId}`,
       method: 'GET',
       headers: this.headers,
       params: {
