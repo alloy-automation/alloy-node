@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/alloy-automation/alloy-node#readme",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^1.6.7",
     "mongodb": "^6.0.0",
     "uuid": "^8.3.2"
   },

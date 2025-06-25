@@ -148,3 +148,27 @@ let data = await apiClient.Workflows.list();
 ```
 
 This call will return all workflows relevant to the specified user.
+
+### Start a Headless Installation
+
+You can start a headless installation by using the following function:
+
+```javascript
+let data = await apiClient.HeadlessInstallation.start({
+  integrationId: 'YOUR_INTEGRATION_ID',
+  userId: 'YOUR_USER_ID',
+});
+```
+
+### Complete a Headless Installation
+
+You can complete a headless installation by using the following function:
+
+```javascript
+let data = await apiClient.HeadlessInstallation.complete({
+  installationId: 'YOUR_INSTALLION_ID',
+  data: {
+    // Your installation data
+  },
+});
+```
